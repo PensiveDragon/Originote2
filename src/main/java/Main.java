@@ -16,7 +16,6 @@ public class Main {
                     .list();
         });
 
-
         System.out.println(selectedLibraries);
 
 
@@ -35,7 +34,9 @@ public class Main {
 
 To Do:
 - Create basic GUI - GUI class
-- Create temporary note storage system - storage handler class
+- Create temporary note storage system - storage handler class?
 - Populate GUI from temporary storage system.
 - On Start up: check for temp database, if not found, create text document for it.
+- Create search function for tags
+- Tag database storing arrays? New database page with links to notes database?
  */

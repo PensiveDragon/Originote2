@@ -13,7 +13,7 @@ public class GUI extends JFrame {
         this.setSize(640,480);
         this.setTitle("Originote");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //this.getContentPane().setBackground(Color.gray);
+        this.getContentPane().setBackground(Color.gray);
         this.setVisible(true);
 
         ImageIcon image = new ImageIcon("Originote.png");
