@@ -15,12 +15,12 @@ public class GUI extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //this.setResizable(true);
         this.setSize(640,480);
-        this.setLayout(new BorderLayout());
+        this.setLayout(new BorderLayout(10,10));
         this.setVisible(true);
 
         ImageIcon image = new ImageIcon("Originote.png");
         this.setIconImage(image.getImage());
-        //this.getContentPane().setBackground(Color.gray);
+        this.getContentPane().setBackground(Color.gray);
 
         //menuPanel.setBounds(0,0,640,100);
         menuPanel.setPreferredSize(new Dimension(640,100));
