@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class GUI extends JFrame {
@@ -8,6 +9,11 @@ public class GUI extends JFrame {
     JPanel leftPanel = new JPanel();
     JPanel rightPanel = new JPanel();
     JPanel centerPanel = new JPanel();
+    JPanel displayListPanel = new JPanel();
+
+    JLabel jLabel = new JLabel();
+
+    JTextField jSearchTextField = new JTextField();
 
     public GUI() {
 
@@ -20,19 +26,22 @@ public class GUI extends JFrame {
 
         ImageIcon image = new ImageIcon("Originote.png");
         this.setIconImage(image.getImage());
-        this.getContentPane().setBackground(Color.gray);
+        //this.getContentPane().setBackground(Color.gray);
 
-        //menuPanel.setBounds(0,0,640,100);
-        menuPanel.setPreferredSize(new Dimension(640,100));
+        Border border = BorderFactory.createLineBorder(Color.GREEN, 3);
+
+
+        menuPanel.setPreferredSize(new Dimension(50,50));
         menuPanel.setBackground(Color.pink);
+        menuPanel.setLayout(null);
 
-        basePanel.setPreferredSize(new Dimension(640,100));
+        basePanel.setPreferredSize(new Dimension(50,50));
         basePanel.setBackground(Color.pink);
 
-        leftPanel.setPreferredSize(new Dimension(100,100));
+        leftPanel.setPreferredSize(new Dimension(50,50));
         leftPanel.setBackground(Color.lightGray);
 
-        rightPanel.setPreferredSize(new Dimension(100,100));
+        rightPanel.setPreferredSize(new Dimension(50,50));
         rightPanel.setBackground(Color.lightGray);
 
         centerPanel.setPreferredSize(new Dimension(80,80));
@@ -43,6 +52,24 @@ public class GUI extends JFrame {
         this.add(leftPanel,BorderLayout.WEST);
         this.add(rightPanel,BorderLayout.EAST);
         this.add(centerPanel,BorderLayout.CENTER);
+
+        jLabel.setText("Originote Logo");
+        jLabel.setPreferredSize(new Dimension(50,50));
+        jLabel.setHorizontalAlignment(JLabel.CENTER);
+        jLabel.setVerticalAlignment(JLabel.CENTER);
+        jLabel.setBorder(border);
+        //jLabel.setBackground(Color.pink);
+        //jLabel.setOpaque(true);
+        jLabel.setBounds(0,0,200,50);
+        menuPanel.add(jLabel);
+
+        jSearchTextField.setPreferredSize(new Dimension(400,25));
+        displayListPanel.setLayout(new GridLayout(5,1));
+        displayListPanel.setBorder(border);
+
+        //centerPanel.setLayout(null);
+        centerPanel.add(jSearchTextField);
+        centerPanel.add(displayListPanel);
 
         this.validate();
 
