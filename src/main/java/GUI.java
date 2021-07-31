@@ -12,6 +12,7 @@ public class GUI extends JFrame {
     JPanel displayListPanel = new JPanel();
 
     JLabel jLabel = new JLabel();
+    JLabel displayListLabel0 = new JLabel();
     JLabel displayListLabel1 = new JLabel();
     JLabel displayListLabel2 = new JLabel();
     JLabel displayListLabel3 = new JLabel();
@@ -73,10 +74,33 @@ public class GUI extends JFrame {
         jSearchTextField.setToolTipText("Search Bar");
         jSearchTextField.setText("Enter your search...");
 
-        displayListPanel.setLayout(new GridLayout(5,1));
+        displayListPanel.setLayout(new GridLayout(6,1));
         displayListPanel.setBounds(10,50, 480,250);
+        displayListPanel.add(displayListLabel0);
+        displayListPanel.add(displayListLabel1);
+        displayListPanel.add(displayListLabel2);
+        displayListPanel.add(displayListLabel3);
+        displayListPanel.add(displayListLabel4);
+        displayListPanel.add(displayListLabel5);
+        displayListPanel.setBorder(border);
 
-        //displayListPanel.setBorder(border);
+        displayListLabel0.setText("Recent Notes:");
+        displayListLabel0.setBorder(border);
+
+        displayListLabel1.setText("1:");
+        displayListLabel1.setBorder(border);
+
+        displayListLabel2.setText("2:");
+        displayListLabel2.setBorder(border);
+
+        displayListLabel3.setText("3:");
+        displayListLabel3.setBorder(border);
+
+        displayListLabel4.setText("4:");
+        displayListLabel4.setBorder(border);
+
+        displayListLabel5.setText("5:");
+        displayListLabel5.setBorder(border);
 
 
         centerPanel.setLayout(null);
