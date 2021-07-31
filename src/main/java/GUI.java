@@ -12,6 +12,11 @@ public class GUI extends JFrame {
     JPanel displayListPanel = new JPanel();
 
     JLabel jLabel = new JLabel();
+    JLabel displayListLabel1 = new JLabel();
+    JLabel displayListLabel2 = new JLabel();
+    JLabel displayListLabel3 = new JLabel();
+    JLabel displayListLabel4 = new JLabel();
+    JLabel displayListLabel5 = new JLabel();
 
     JTextField jSearchTextField = new JTextField();
 
@@ -63,11 +68,18 @@ public class GUI extends JFrame {
         jLabel.setBounds(0,0,200,50);
         menuPanel.add(jLabel);
 
-        jSearchTextField.setPreferredSize(new Dimension(400,25));
-        displayListPanel.setLayout(new GridLayout(5,1));
-        displayListPanel.setBorder(border);
+        //jSearchTextField.setPreferredSize(new Dimension(400,25));
+        jSearchTextField.setBounds(10,10,480,25);
+        jSearchTextField.setToolTipText("Search Bar");
+        jSearchTextField.setText("Enter your search...");
 
-        //centerPanel.setLayout(null);
+        displayListPanel.setLayout(new GridLayout(5,1));
+        displayListPanel.setBounds(10,50, 480,250);
+
+        //displayListPanel.setBorder(border);
+
+
+        centerPanel.setLayout(null);
         centerPanel.add(jSearchTextField);
         centerPanel.add(displayListPanel);
 
