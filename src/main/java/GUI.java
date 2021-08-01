@@ -34,21 +34,21 @@ public class GUI extends JFrame {
         this.setIconImage(image.getImage());
         //this.getContentPane().setBackground(Color.gray);
 
-        Border border = BorderFactory.createLineBorder(Color.GREEN, 3);
+        Border border = BorderFactory.createLineBorder(Color.black, 1);
 
 
         menuPanel.setPreferredSize(new Dimension(50,50));
-        menuPanel.setBackground(Color.pink);
+        //menuPanel.setBackground(Color.white);
         menuPanel.setLayout(null);
 
         basePanel.setPreferredSize(new Dimension(50,50));
-        basePanel.setBackground(Color.pink);
+        //basePanel.setBackground(Color.white);
 
         leftPanel.setPreferredSize(new Dimension(50,50));
-        leftPanel.setBackground(Color.lightGray);
+        //leftPanel.setBackground(Color.lightGray);
 
         rightPanel.setPreferredSize(new Dimension(50,50));
-        rightPanel.setBackground(Color.lightGray);
+        //rightPanel.setBackground(Color.lightGray);
 
         centerPanel.setPreferredSize(new Dimension(80,80));
         centerPanel.setBackground(Color.white);
@@ -74,6 +74,7 @@ public class GUI extends JFrame {
         jSearchTextField.setToolTipText("Search Bar");
         jSearchTextField.setText("Enter your search...");
 
+
         displayListPanel.setLayout(new GridLayout(6,1));
         displayListPanel.setBounds(10,50, 480,250);
         displayListPanel.add(displayListLabel0);
@@ -85,22 +86,23 @@ public class GUI extends JFrame {
         displayListPanel.setBorder(border);
 
         displayListLabel0.setText("Recent Notes:");
-        displayListLabel0.setBorder(border);
+        displayListLabel0.setHorizontalAlignment(0);
+        //displayListLabel0.setBorder(border);
 
-        displayListLabel1.setText("1:");
-        displayListLabel1.setBorder(border);
+        displayListLabel1.setText(" 1:");
+        //displayListLabel1.setBorder(border);
 
-        displayListLabel2.setText("2:");
-        displayListLabel2.setBorder(border);
+        displayListLabel2.setText(" 2:");
+        //displayListLabel2.setBorder(border);
 
-        displayListLabel3.setText("3:");
-        displayListLabel3.setBorder(border);
+        displayListLabel3.setText(" 3:");
+        //displayListLabel3.setBorder(border);
 
-        displayListLabel4.setText("4:");
-        displayListLabel4.setBorder(border);
+        displayListLabel4.setText(" 4:");
+        //displayListLabel4.setBorder(border);
 
-        displayListLabel5.setText("5:");
-        displayListLabel5.setBorder(border);
+        displayListLabel5.setText(" 5:");
+        //displayListLabel5.setBorder(border);
 
 
         centerPanel.setLayout(null);
