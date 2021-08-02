@@ -8,6 +8,7 @@ public class Main {
 	// write your code here
 
         System.out.println("Meow");
+/*
         Jdbi jdbi = Jdbi.create("jdbc:mysql://localhost:3306/sakila", "root", System.getenv("MYSQL_PW"));
         List<SelectedLibrary> selectedLibraries = jdbi.withHandle(handle -> {
             return handle.createQuery("SELECT * FROM selectedLibrary")
@@ -16,8 +17,8 @@ public class Main {
         });
 
         System.out.println(selectedLibraries);
-
-
+*/
+        DatabaseHandler databaseHandler = new DatabaseHandler();
         GUI gui = new GUI();
 
     }
