@@ -15,5 +15,21 @@ public class DatabaseHandler {
         System.out.println(NoteContents);
     }
 
-
+    /* methods to access sql
+    Default Screen:
+    - Populate Recent notes call: either sort by >id (easiest) or array of id's most recently created/edited (best).
+    -> Select * from note_content
+    New/Edit Note Screen:
+    - Create new note
+    - Create new tags
+    - Edit note
+    - Edit tags
+    View Note Screen:
+    - Populate from database
+    -> Select * from note_content where id=x
+    Search Screen:
+    - Populate list with search results
+    -> Select * from note_tags where tag=x
+    -> Select * from note_content where title contains x
+    */
 }
