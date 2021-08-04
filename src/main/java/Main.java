@@ -18,8 +18,8 @@ public class Main {
 /*
     Functions:
      - List
-     - Create
-     - Edit
+     - Create / Edit
+     - Display
      - Search
 
 

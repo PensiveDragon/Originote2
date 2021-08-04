@@ -15,6 +15,16 @@ public class DatabaseHandler {
         System.out.println(NoteContents);
     }
 
+    public NoteContent findNoteDataByID(int id) {
+
+        NoteContent result = new NoteContent();
+
+
+
+        return result;
+    }
+
+
     /* methods to access sql
     Default Screen:
     - Populate Recent notes call: either sort by >id (easiest) or array of id's most recently created/edited (best).
