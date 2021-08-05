@@ -24,6 +24,13 @@ public class DatabaseHandler {
         return result;
     }
 
+    public NoteContent findNoteDataByTag(String tag) {
+
+        NoteContent result = new NoteContent();
+
+        return result;
+    }
+
 
     /* methods to access sql
     Default Screen:
@@ -41,5 +48,7 @@ public class DatabaseHandler {
     - Populate list with search results
     -> Select * from note_tags where tag=x
     -> Select * from note_content where title contains x
+
+    ## Join can be used to find data from one table using information from another connected table. ##
     */
 }

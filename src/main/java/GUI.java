@@ -38,17 +38,17 @@ public class GUI extends JFrame {
 
 
         menuPanel.setPreferredSize(new Dimension(50,50));
-        //menuPanel.setBackground(Color.white);
+        menuPanel.setBackground(Color.white);
         menuPanel.setLayout(null);
 
         basePanel.setPreferredSize(new Dimension(50,50));
-        //basePanel.setBackground(Color.white);
+        basePanel.setBackground(Color.white);
 
         leftPanel.setPreferredSize(new Dimension(50,50));
-        //leftPanel.setBackground(Color.lightGray);
+        leftPanel.setBackground(Color.lightGray);
 
         rightPanel.setPreferredSize(new Dimension(50,50));
-        //rightPanel.setBackground(Color.lightGray);
+        rightPanel.setBackground(Color.lightGray);
 
         centerPanel.setPreferredSize(new Dimension(80,80));
         centerPanel.setBackground(Color.white);
@@ -114,3 +114,5 @@ public class GUI extends JFrame {
     }
 
 }
+
+/* ## look into tabbed panel / tabbed window */
