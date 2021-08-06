@@ -31,6 +31,13 @@ public class DatabaseHandler {
         return result;
     }
 
+    public void storeNoteDataAtID(NoteContent noteContent) {
+        // insert into note_content(title, body) values ("Film Night Ideas", "Titanic, Shawshank Redemption, Silence of the Lambs");
+
+        // insert into note_content(title, body) values (noteContent.title, noteContent.body);
+        // insert into note_content(id, title, body) values (noteContent.id, noteContent.title, noteContent.body);
+    }
+
 
     /* methods to access sql
     Default Screen:
