@@ -17,11 +17,13 @@ public class DatabaseHandler {
 
     public NoteContent findNoteDataByID(int id) {
 
-        NoteContent result = new NoteContent();
-
-
-
-        return result;
+        List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM note_content where id=" + id)
+                    .mapToBean(NoteContent.class)
+                    .list();
+        });
+        //## Add safety to code for when result is empty!!!
+        return NoteContents.get(0);
     }
 
     public NoteContent findNoteDataByTag(String tag) {
@@ -36,6 +38,10 @@ public class DatabaseHandler {
 
         // insert into note_content(title, body) values (noteContent.title, noteContent.body);
         // insert into note_content(id, title, body) values (noteContent.id, noteContent.title, noteContent.body);
+    }
+
+    public void deleteNoteDataAtID(NoteContent noteContent) {
+        // delete from selectedLibrary where id=4;
     }
 
 

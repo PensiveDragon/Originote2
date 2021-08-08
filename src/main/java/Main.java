@@ -10,7 +10,11 @@ public class Main {
         System.out.println("Meow");
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        System.out.println(databaseHandler.findNoteDataByID(1));
+
         GUI gui = new GUI();
+
 
     }
 }
