@@ -66,6 +66,13 @@ public class DatabaseHandler {
     }
 
     public void storeNoteDataAtID(NoteContent noteContent) {
+        jdbi.withHandle(handle -> {
+           handle.createUpdate("insert into note_content(title, body) values (:title, :body")
+            .bind("title", noteContent.title)
+            .bind("name", noteContent.body)
+            .execute();
+        });
+
         // insert into note_content(title, body) values ("Film Night Ideas", "Titanic, Shawshank Redemption, Silence of the Lambs");
 
         // insert into note_content(title, body) values (noteContent.title, noteContent.body);
