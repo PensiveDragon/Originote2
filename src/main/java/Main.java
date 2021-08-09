@@ -11,6 +11,9 @@ public class Main {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
+        //String test = databaseHandler.findNoteDataByID(1).toString();
+        //System.out.println(test);
+
         System.out.println(databaseHandler.findNoteDataByID(1));
 
         GUI gui = new GUI();

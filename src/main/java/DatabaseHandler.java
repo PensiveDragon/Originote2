@@ -1,6 +1,7 @@
 import org.jdbi.v3.core.Jdbi;
 
 import java.util.List;
+import java.util.Optional;
 
 public class DatabaseHandler {
 
@@ -28,14 +29,40 @@ public class DatabaseHandler {
         } else {
             return null;
         }
-
     }
 
-    public NoteContent findNoteDataByTag(String tag) {
+/*
+    public Optional<NoteContent> findNoteDataByID(int id) {
 
-        NoteContent result = new NoteContent();
+        Optional<NoteContent> NoteContent = jdbi.withHandle(handle -> {
+            return handle.select("SELECT * FROM note_content where id=" + id)
+                    .mapTo(NoteContent.class)
+                    .findOne();
+        });
+        // TODO: Fix errors to make Optional work!
+        // TODO: Add exception handler for >1 results.
+        if (NoteContent.isPresent()) {
+            return NoteContent;
+        } else {
+            return null;
+        }
 
-        return result;
+
+    }*/
+
+    public List<NoteContent> findNoteIDsByTag(String tag) {
+
+        List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM tags_to_notes where tag=" + tag)
+                    .mapToBean(NoteContent.class)
+                    .list();
+        });
+
+        if (NoteContents.size()!=0) {
+            return NoteContents;
+        } else {
+            return null;
+        }
     }
 
     public void storeNoteDataAtID(NoteContent noteContent) {
