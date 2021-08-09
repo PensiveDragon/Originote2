@@ -23,7 +23,12 @@ public class DatabaseHandler {
                     .list();
         });
         //## Add safety to code for when result is empty!!!
-        return NoteContents.get(0);
+        if (NoteContents.size()!=0) {
+            return NoteContents.get(0);
+        } else {
+            return null;
+        }
+
     }
 
     public NoteContent findNoteDataByTag(String tag) {
