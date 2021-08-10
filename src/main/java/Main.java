@@ -16,6 +16,12 @@ public class Main {
 
         System.out.println(databaseHandler.findNoteDataByID(1));
 
+        NoteContent testData = new NoteContent();
+        testData.setTitle("Test Data");
+        testData.setBody("Test Content");
+
+        databaseHandler.storeNoteDataAtID(testData);
+
         GUI gui = new GUI();
 
 
