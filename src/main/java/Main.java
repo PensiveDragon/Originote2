@@ -14,13 +14,16 @@ public class Main {
         //String test = databaseHandler.findNoteDataByID(1).toString();
         //System.out.println(test);
 
-        System.out.println(databaseHandler.findNoteDataByID(1));
+        //System.out.println(databaseHandler.findNoteDataByID(1));
+
+        System.out.println(databaseHandler.findNoteDataByIDOptional(1));
 
         NoteContent testData = new NoteContent();
         testData.setTitle("Test Data");
         testData.setBody("Test Content");
 
-        databaseHandler.storeNoteDataAtID(testData);
+        //databaseHandler.storeNoteDataAtID(testData);
+        databaseHandler.deleteNoteDataAtID(4);
 
         GUI gui = new GUI();
 

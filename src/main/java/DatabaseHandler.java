@@ -13,7 +13,7 @@ public class DatabaseHandler {
     });
 
     DatabaseHandler(){
-        System.out.println(NoteContents);
+        //System.out.println(NoteContents);
     }
 
     public NoteContent findNoteDataByID(int id) {
@@ -23,7 +23,7 @@ public class DatabaseHandler {
                     .mapToBean(NoteContent.class)
                     .list();
         });
-        //## Add safety to code for when result is empty!!!
+
         if (NoteContents.size()!=0) {
             return NoteContents.get(0);
         } else {
@@ -32,23 +32,27 @@ public class DatabaseHandler {
     }
 
 /*
-    public Optional<NoteContent> findNoteDataByID(int id) {
+    public Optional<NoteContent> findNoteDataByIDOptional(int id) {
 
-        Optional<NoteContent> NoteContent = jdbi.withHandle(handle -> {
-            return handle.select("SELECT * FROM note_content where id=" + id)
-                    .mapTo(NoteContent.class)
-                    .findOne();
-        });
-        // TODO: Fix errors to make Optional work!
-        // TODO: Add exception handler for >1 results.
-        if (NoteContent.isPresent()) {
+        try {
+
+            Optional<NoteContent> NoteContent = jdbi.withHandle(handle -> {
+                return handle.select("SELECT * FROM note_content where id=" + id)
+                        .mapTo(NoteContent.class)
+                        .findOne();
+            });
+            // TODO: Fix errors to make Optional work!
+            // TODO: Add exception handler for >1 results.
             return NoteContent;
-        } else {
-            return null;
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
+        return null;
+    }
 
-    }*/
+ */
 
     public List<NoteContent> findNoteIDsByTag(String tag) {
 
@@ -86,15 +90,13 @@ public class DatabaseHandler {
         // insert into note_content(title, body) values (noteContent.title, noteContent.body);
         // insert into note_content(id, title, body) values (noteContent.id, noteContent.title, noteContent.body);
     }
-/*
-    public void deleteNoteDataAtID(NoteContent noteContent) {
+
+    public void deleteNoteDataAtID(int id) {
 
         try {
 
             int result = jdbi.withHandle(handle -> {
-                return handle.createUpdate("insert into note_content(title, body) values (:title, :body)")
-                        .bind("title", noteContent.getTitle())
-                        .bind("body", noteContent.getBody())
+                return handle.createUpdate("delete from note_content where id=" + id)
                         .execute();
             });
 
@@ -103,8 +105,7 @@ public class DatabaseHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // delete from selectedLibrary where id=4;
-    }*/
+    }
 
 
     /* methods to access sql
