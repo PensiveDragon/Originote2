@@ -1,7 +1,3 @@
-import org.jdbi.v3.core.Jdbi;
-
-import java.util.List;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -11,18 +7,17 @@ public class Main {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
-        //String test = databaseHandler.findNoteDataByID(1).toString();
-        //System.out.println(test);
+        System.out.println(databaseHandler.findNoteDataByID(1));
 
-        //System.out.println(databaseHandler.findNoteDataByID(1));
+        //System.out.println(databaseHandler.findNoteDataByIDOptional(1));
 
-        System.out.println(databaseHandler.findNoteDataByIDOptional(1));
+        System.out.println(databaseHandler.findTagDataByTag("film"));
 
         NoteContent testData = new NoteContent();
         testData.setTitle("Test Data");
         testData.setBody("Test Content");
 
-        //databaseHandler.storeNoteDataAtID(testData);
+        databaseHandler.storeNoteDataAtID(testData);
         databaseHandler.deleteNoteDataAtID(4);
 
         GUI gui = new GUI();

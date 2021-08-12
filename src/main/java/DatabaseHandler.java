@@ -6,15 +6,6 @@ import java.util.Optional;
 public class DatabaseHandler {
 
     Jdbi jdbi = Jdbi.create("jdbc:mysql://localhost:3306/originote", "root", System.getenv("MYSQL_PW"));
-    List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
-        return handle.createQuery("SELECT * FROM note_content")
-                .mapToBean(NoteContent.class)
-                .list();
-    });
-
-    DatabaseHandler(){
-        //System.out.println(NoteContents);
-    }
 
     public NoteContent findNoteDataByID(int id) {
 
@@ -51,22 +42,23 @@ public class DatabaseHandler {
 
         return null;
     }
+*/
 
- */
+    public List<TagContent> findTagDataByTag(String tag) {
 
-    public List<NoteContent> findNoteIDsByTag(String tag) {
 
-        List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
-            return handle.createQuery("SELECT * FROM tags_to_notes where tag=" + tag)
-                    .mapToBean(NoteContent.class)
+        List<TagContent> TagContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM tags_to_notes where tag='" + tag + "'")
+                    .mapToBean(TagContent.class)
                     .list();
         });
 
-        if (NoteContents.size()!=0) {
-            return NoteContents;
+        if (TagContents.size() != 0) {
+            return TagContents;
         } else {
             return null;
         }
+
     }
 
     public void storeNoteDataAtID(NoteContent noteContent) {
