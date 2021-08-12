@@ -17,8 +17,15 @@ public class Main {
         testData.setTitle("Test Data");
         testData.setBody("Test Content");
 
-        databaseHandler.storeNoteDataAtID(testData);
+        databaseHandler.storeNoteDataAtNextID(testData);
         databaseHandler.deleteNoteDataAtID(4);
+
+        NoteContent updateTestData = new NoteContent();
+        updateTestData.setId(3);
+        updateTestData.setTitle("Updated Data");
+        updateTestData.setBody("Updated Content");
+
+        databaseHandler.updateNoteDataAtSpecificID(updateTestData);
 
         GUI gui = new GUI();
 

@@ -61,12 +61,35 @@ public class DatabaseHandler {
 
     }
 
-    public void storeNoteDataAtID(NoteContent noteContent) {
+    public void storeNoteDataAtNextID(NoteContent noteContent) {
 
         try {
 
             int result = jdbi.withHandle(handle -> {
                 return handle.createUpdate("insert into note_content(title, body) values (:title, :body)")
+                        .bind("title", noteContent.getTitle())
+                        .bind("body", noteContent.getBody())
+                        .execute();
+            });
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // insert into note_content(title, body) values ("Film Night Ideas", "Titanic, Shawshank Redemption, Silence of the Lambs");
+
+        // insert into note_content(title, body) values (noteContent.title, noteContent.body);
+        // insert into note_content(id, title, body) values (noteContent.id, noteContent.title, noteContent.body);
+    }
+
+    public void updateNoteDataAtSpecificID(NoteContent noteContent) {
+
+        try {
+
+            int result = jdbi.withHandle(handle -> {
+                return handle.createUpdate("UPDATE note_content SET title=:title, body=:body where id=:id")
+                        .bind("id", noteContent.getId())
                         .bind("title", noteContent.getTitle())
                         .bind("body", noteContent.getBody())
                         .execute();
