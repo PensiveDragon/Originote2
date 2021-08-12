@@ -77,10 +77,6 @@ public class DatabaseHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // insert into note_content(title, body) values ("Film Night Ideas", "Titanic, Shawshank Redemption, Silence of the Lambs");
-
-        // insert into note_content(title, body) values (noteContent.title, noteContent.body);
-        // insert into note_content(id, title, body) values (noteContent.id, noteContent.title, noteContent.body);
     }
 
     public void updateNoteDataAtSpecificID(NoteContent noteContent) {
@@ -100,10 +96,26 @@ public class DatabaseHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // insert into note_content(title, body) values ("Film Night Ideas", "Titanic, Shawshank Redemption, Silence of the Lambs");
+    }
 
-        // insert into note_content(title, body) values (noteContent.title, noteContent.body);
-        // insert into note_content(id, title, body) values (noteContent.id, noteContent.title, noteContent.body);
+    public void addTagToSpecificID(String tag, int note_id) {
+
+        //TODO: prevent duplicate tag/id crashes
+
+        try {
+
+            int result = jdbi.withHandle(handle -> {
+                return handle.createUpdate("insert into tags_to_notes(tag, note_id) values (:tag, :note_id)")
+                        .bind("tag", tag)
+                        .bind("note_id", note_id)
+                        .execute();
+            });
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void deleteNoteDataAtID(int id) {
@@ -141,5 +153,9 @@ public class DatabaseHandler {
     -> Select * from note_content where title contains x
 
     ## Join can be used to find data from one table using information from another connected table. ##
+
+    TODO: Ask about deletion from SQL database, auto-increment, reusing old numbers (or not), any practical limits on entries
+    TODO: Ask about tag association and deletion
+    TODO: Look about fuzzy searching for tags / words - just the LIKE keyword?
     */
 }

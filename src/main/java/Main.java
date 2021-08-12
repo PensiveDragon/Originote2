@@ -17,7 +17,14 @@ public class Main {
         testData.setTitle("Test Data");
         testData.setBody("Test Content");
 
-        databaseHandler.storeNoteDataAtNextID(testData);
+        TagContent tagData = new TagContent();
+        tagData.setTag("Hats");
+        tagData.setNote_id(testData.getId());
+
+        //databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
+        //databaseHandler.addTagToSpecificID("Hat", 3);
+
+        //databaseHandler.storeNoteDataAtNextID(testData);
         databaseHandler.deleteNoteDataAtID(4);
 
         NoteContent updateTestData = new NoteContent();
