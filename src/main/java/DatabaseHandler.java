@@ -79,25 +79,6 @@ public class DatabaseHandler {
         }
     }
 
-    public void updateNoteDataAtSpecificID(NoteContent noteContent) {
-
-        try {
-
-            int result = jdbi.withHandle(handle -> {
-                return handle.createUpdate("UPDATE note_content SET title=:title, body=:body where id=:id")
-                        .bind("id", noteContent.getId())
-                        .bind("title", noteContent.getTitle())
-                        .bind("body", noteContent.getBody())
-                        .execute();
-            });
-
-            System.out.println(result);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
     public void addTagToSpecificID(String tag, int note_id) {
 
         //TODO: prevent duplicate tag/id crashes
@@ -108,6 +89,25 @@ public class DatabaseHandler {
                 return handle.createUpdate("insert into tags_to_notes(tag, note_id) values (:tag, :note_id)")
                         .bind("tag", tag)
                         .bind("note_id", note_id)
+                        .execute();
+            });
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateNoteDataAtSpecificID(NoteContent noteContent) {
+
+        try {
+
+            int result = jdbi.withHandle(handle -> {
+                return handle.createUpdate("UPDATE note_content SET title=:title, body=:body where id=:id")
+                        .bind("id", noteContent.getId())
+                        .bind("title", noteContent.getTitle())
+                        .bind("body", noteContent.getBody())
                         .execute();
             });
 
@@ -134,6 +134,21 @@ public class DatabaseHandler {
         }
     }
 
+    public void deleteAllTagsAtID(int note_id) {
+
+        try {
+
+            int result = jdbi.withHandle(handle -> {
+                return handle.createUpdate("delete from tags_to_notes where note_id=" + note_id)
+                        .execute();
+            });
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     /* methods to access sql
     Default Screen:

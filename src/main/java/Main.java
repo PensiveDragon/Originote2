@@ -24,6 +24,8 @@ public class Main {
         //databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
         //databaseHandler.addTagToSpecificID("Hat", 3);
 
+        databaseHandler.deleteAllTagsAtID(3);
+
         //databaseHandler.storeNoteDataAtNextID(testData);
         databaseHandler.deleteNoteDataAtID(4);
 
