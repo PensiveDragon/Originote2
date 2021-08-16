@@ -150,6 +150,23 @@ public class DatabaseHandler {
         }
     }
 
+    public void deleteSpecificTagAtID(String tag, int note_id) {
+
+        try {
+
+            int result = jdbi.withHandle(handle -> {
+                return handle.createUpdate("DELETE FROM tags_to_notes WHERE note_id=" + note_id + " AND tag='" + tag + "'")
+                //return handle.createUpdate("DELETE FROM tags_to_notes WHERE note_id=3 AND tag='Hat'")
+                        .execute();
+            });
+
+            System.out.println(result);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     /* methods to access sql
     Default Screen:
     - Populate Recent notes call: either sort by >id (easiest) or array of id's most recently created/edited (best).
