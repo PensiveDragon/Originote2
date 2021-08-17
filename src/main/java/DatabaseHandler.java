@@ -22,7 +22,6 @@ public class DatabaseHandler {
         }
     }
 
-
     public Optional<NoteContent> findNoteDataByIDOptional(int id) {
 
         try {
@@ -47,9 +46,7 @@ public class DatabaseHandler {
         return null;
     }
 
-
     public List<TagContent> findTagDataByTag(String tag) {
-
 
         List<TagContent> TagContents = jdbi.withHandle(handle -> {
             return handle.createQuery("SELECT * FROM tags_to_notes where tag='" + tag + "'")
@@ -62,7 +59,6 @@ public class DatabaseHandler {
         } else {
             return null;
         }
-
     }
 
     public void storeNoteDataAtNextID(NoteContent noteContent) {

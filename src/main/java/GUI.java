@@ -115,4 +115,26 @@ public class GUI extends JFrame {
 
 }
 
-/* ## look into tabbed panel / tabbed window */
+/* Improve UI:
+- Create Recent Notes module
+ -> Heading Bar
+ -> 5x rows of clickable entries with text space set 50/50 between title and tags list
+- Create Search bar module
+ -> TextField taking up most of the line. Fill text stating 'search titles or #searchtags'
+ -> 'Search' button at the end
+- Create Top bar module
+ -> Originote Icon
+ -> New Note Button
+ -> List Notes Button
+ */
+
+/* ## look into tabbed panel / tabbed window
+* Fill in recent notes list
+* Add search button to end of search bar
+* Add search button work functionality
+* Add New Note Button
+* Add new note button functionality
+* Add List Notes Button
+* Add List Notes Button functionality
+* Make recent notes clickable to open in viewer
+* */

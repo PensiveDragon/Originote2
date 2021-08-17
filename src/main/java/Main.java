@@ -54,8 +54,15 @@ public class Main {
 To Do:
 X- Create basic GUI - GUI class
 X- Create basic attachment to mysql database
-- Create methods for storing data
-- Create methods for retrieving data
-- Create search function for tags
-- Tag database storing arrays? New database page with links to notes database?
+X- Create DB methods for storing data
+X- Create DB methods for retrieving data
+X- Create DB search function for tags
+X- NoteContent database
+X- Tag database linking to NoteContent db
+- Create New/Edit Note GUI
+- Create View Note GUI
+- Create Search Result GUI
+- Create Automatic Tests for DBHandler
+- Create UIHandler class to hook UI to DBHandler
+
  */
