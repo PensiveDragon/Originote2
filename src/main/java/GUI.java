@@ -5,8 +5,9 @@ import java.awt.*;
 public class GUI extends JFrame {
 
     JPanel menuBarPanel = new JPanel();
-    JPanel basePanel = new JPanel();
-    JPanel centerPanel = new JPanel();
+    JPanel bodyPanel = new JPanel();
+    JPanel searchBarPanel = new JPanel();
+    JPanel recentNotesPanel = new JPanel();
     JPanel displayListPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
@@ -48,35 +49,50 @@ public class GUI extends JFrame {
 
         JButton newNoteButton = new JButton();
         newNoteButton.setText("New Note");
+        newNoteButton.setBackground(Color.white);
 
         JButton listNotesButton = new JButton();
         listNotesButton.setText("List Notes");
+        listNotesButton.setBackground(Color.white);
 
         menuBarPanel.add(originoteIconjLabel);
         menuBarPanel.add(newNoteButton);
         menuBarPanel.add(listNotesButton);
 
+        bodyPanel.setLayout(new BorderLayout(10,10));
+
         //### SEARCH BAR PANEL SETUP
 
-        basePanel.setPreferredSize(new Dimension(50,50));
-        basePanel.setBackground(Color.white);
+        searchBarPanel.setPreferredSize(new Dimension(640,50));
+        searchBarPanel.setBackground(Color.white);
+        searchBarPanel.setLayout(new FlowLayout());
+        searchBarPanel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+
+        JButton searchButton = new JButton();
+        searchButton.setText("Search");
+
+        jSearchTextField.setToolTipText("Search Bar");
+        jSearchTextField.setText("Enter your search...");
+        jSearchTextField.setPreferredSize(new Dimension(400,30));
+
+
+        searchBarPanel.add(searchButton);
+        searchBarPanel.add(jSearchTextField);
 
         //### RECENT NOTES PANEL SETUP
 
-        centerPanel.setPreferredSize(new Dimension(80,80));
-        centerPanel.setBackground(Color.white);
+        recentNotesPanel.setPreferredSize(new Dimension(80,80));
+        recentNotesPanel.setBackground(Color.white);
 
         this.add(menuBarPanel,BorderLayout.NORTH);
-        //this.add(basePanel,BorderLayout.SOUTH);
-        //this.add(centerPanel,BorderLayout.CENTER);
+        this.add(bodyPanel,BorderLayout.CENTER);
+        bodyPanel.add(searchBarPanel,BorderLayout.NORTH);
+        //this.add(recentNotesPanel,BorderLayout.SOUTH);
 
 
 
 
-        //jSearchTextField.setPreferredSize(new Dimension(400,25));
-        jSearchTextField.setBounds(10,10,480,25);
-        jSearchTextField.setToolTipText("Search Bar");
-        jSearchTextField.setText("Enter your search...");
+
 
 
         displayListPanel.setLayout(new GridLayout(6,1));
@@ -109,9 +125,8 @@ public class GUI extends JFrame {
         //displayListLabel5.setBorder(border);
 
 
-        centerPanel.setLayout(null);
-        centerPanel.add(jSearchTextField);
-        centerPanel.add(displayListPanel);
+        recentNotesPanel.setLayout(null);
+        recentNotesPanel.add(displayListPanel);
 
         this.validate();
 
