@@ -6,8 +6,6 @@ public class GUI extends JFrame {
 
     JPanel menuPanel = new JPanel();
     JPanel basePanel = new JPanel();
-    JPanel leftPanel = new JPanel();
-    JPanel rightPanel = new JPanel();
     JPanel centerPanel = new JPanel();
     JPanel displayListPanel = new JPanel();
 
@@ -19,6 +17,8 @@ public class GUI extends JFrame {
     JLabel displayListLabel4 = new JLabel();
     JLabel displayListLabel5 = new JLabel();
 
+    ImageIcon image = new ImageIcon("Originote.png");
+    ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
     JTextField jSearchTextField = new JTextField();
 
     public GUI() {
@@ -30,8 +30,9 @@ public class GUI extends JFrame {
         this.setLayout(new BorderLayout(10,10));
         this.setVisible(true);
 
-        ImageIcon image = new ImageIcon("Originote.png");
+
         this.setIconImage(image.getImage());
+
         //this.getContentPane().setBackground(Color.gray);
 
         Border border = BorderFactory.createLineBorder(Color.black, 1);
@@ -44,29 +45,23 @@ public class GUI extends JFrame {
         basePanel.setPreferredSize(new Dimension(50,50));
         basePanel.setBackground(Color.white);
 
-        leftPanel.setPreferredSize(new Dimension(50,50));
-        leftPanel.setBackground(Color.lightGray);
-
-        rightPanel.setPreferredSize(new Dimension(50,50));
-        rightPanel.setBackground(Color.lightGray);
-
         centerPanel.setPreferredSize(new Dimension(80,80));
         centerPanel.setBackground(Color.white);
 
         this.add(menuPanel,BorderLayout.NORTH);
-        this.add(basePanel,BorderLayout.SOUTH);
-        this.add(leftPanel,BorderLayout.WEST);
-        this.add(rightPanel,BorderLayout.EAST);
-        this.add(centerPanel,BorderLayout.CENTER);
+        //this.add(basePanel,BorderLayout.SOUTH);
+        //this.add(centerPanel,BorderLayout.CENTER);
 
-        jLabel.setText("Originote Logo");
-        jLabel.setPreferredSize(new Dimension(50,50));
+        //jLabel.setText("Originote Logo");
+        jLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
+
+        jLabel.setPreferredSize(new Dimension(130,50));
         jLabel.setHorizontalAlignment(JLabel.CENTER);
         jLabel.setVerticalAlignment(JLabel.CENTER);
-        jLabel.setBorder(border);
+        //jLabel.setBorder(border);
         //jLabel.setBackground(Color.pink);
         //jLabel.setOpaque(true);
-        jLabel.setBounds(0,0,200,50);
+        jLabel.setBounds(0,0,130,50);
         menuPanel.add(jLabel);
 
         //jSearchTextField.setPreferredSize(new Dimension(400,25));
