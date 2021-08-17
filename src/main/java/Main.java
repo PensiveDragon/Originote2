@@ -9,7 +9,7 @@ public class Main {
 
         System.out.println(databaseHandler.findNoteDataByID(1));
 
-        //System.out.println(databaseHandler.findNoteDataByIDOptional(1));
+        System.out.println(databaseHandler.findNoteDataByIDOptional(1));
 
         System.out.println(databaseHandler.findTagDataByTag("film"));
 

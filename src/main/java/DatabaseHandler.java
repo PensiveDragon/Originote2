@@ -22,19 +22,23 @@ public class DatabaseHandler {
         }
     }
 
-/*
+
     public Optional<NoteContent> findNoteDataByIDOptional(int id) {
 
         try {
 
             Optional<NoteContent> NoteContent = jdbi.withHandle(handle -> {
                 return handle.select("SELECT * FROM note_content where id=" + id)
-                        .mapTo(NoteContent.class)
+                        .mapToBean(NoteContent.class)
                         .findOne();
             });
             // TODO: Fix errors to make Optional work!
             // TODO: Add exception handler for >1 results.
-            return NoteContent;
+            if (NoteContent.isPresent()) {
+                return NoteContent;
+            } else {
+                return null;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -42,7 +46,7 @@ public class DatabaseHandler {
 
         return null;
     }
-*/
+
 
     public List<TagContent> findTagDataByTag(String tag) {
 
