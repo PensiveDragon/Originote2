@@ -4,12 +4,12 @@ import java.awt.*;
 
 public class GUI extends JFrame {
 
-    JPanel menuPanel = new JPanel();
+    JPanel menuBarPanel = new JPanel();
     JPanel basePanel = new JPanel();
     JPanel centerPanel = new JPanel();
     JPanel displayListPanel = new JPanel();
 
-    JLabel jLabel = new JLabel();
+    JLabel originoteIconjLabel = new JLabel();
     JLabel displayListLabel0 = new JLabel();
     JLabel displayListLabel1 = new JLabel();
     JLabel displayListLabel2 = new JLabel();
@@ -20,6 +20,7 @@ public class GUI extends JFrame {
     ImageIcon image = new ImageIcon("Originote.png");
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
     JTextField jSearchTextField = new JTextField();
+    Border testBoundsBorder = BorderFactory.createLineBorder(Color.black, 1);
 
     public GUI() {
 
@@ -29,40 +30,48 @@ public class GUI extends JFrame {
         this.setSize(640,480);
         this.setLayout(new BorderLayout(10,10));
         this.setVisible(true);
-
-
         this.setIconImage(image.getImage());
-
         //this.getContentPane().setBackground(Color.gray);
 
-        Border border = BorderFactory.createLineBorder(Color.black, 1);
 
 
-        menuPanel.setPreferredSize(new Dimension(50,50));
-        menuPanel.setBackground(Color.white);
-        menuPanel.setLayout(null);
+        //### MENU BAR PANEL SETUP
+
+        menuBarPanel.setPreferredSize(new Dimension(640,50));
+        menuBarPanel.setBackground(Color.white);
+        menuBarPanel.setLayout(new GridLayout(1,3));
+
+        originoteIconjLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
+        originoteIconjLabel.setPreferredSize(new Dimension(130,50));
+        originoteIconjLabel.setHorizontalAlignment(JLabel.CENTER);
+        originoteIconjLabel.setVerticalAlignment(JLabel.CENTER);
+
+        JButton newNoteButton = new JButton();
+        newNoteButton.setText("New Note");
+
+        JButton listNotesButton = new JButton();
+        listNotesButton.setText("List Notes");
+
+        menuBarPanel.add(originoteIconjLabel);
+        menuBarPanel.add(newNoteButton);
+        menuBarPanel.add(listNotesButton);
+
+        //### SEARCH BAR PANEL SETUP
 
         basePanel.setPreferredSize(new Dimension(50,50));
         basePanel.setBackground(Color.white);
 
+        //### RECENT NOTES PANEL SETUP
+
         centerPanel.setPreferredSize(new Dimension(80,80));
         centerPanel.setBackground(Color.white);
 
-        this.add(menuPanel,BorderLayout.NORTH);
+        this.add(menuBarPanel,BorderLayout.NORTH);
         //this.add(basePanel,BorderLayout.SOUTH);
         //this.add(centerPanel,BorderLayout.CENTER);
 
-        //jLabel.setText("Originote Logo");
-        jLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
 
-        jLabel.setPreferredSize(new Dimension(130,50));
-        jLabel.setHorizontalAlignment(JLabel.CENTER);
-        jLabel.setVerticalAlignment(JLabel.CENTER);
-        //jLabel.setBorder(border);
-        //jLabel.setBackground(Color.pink);
-        //jLabel.setOpaque(true);
-        jLabel.setBounds(0,0,130,50);
-        menuPanel.add(jLabel);
+
 
         //jSearchTextField.setPreferredSize(new Dimension(400,25));
         jSearchTextField.setBounds(10,10,480,25);
@@ -78,7 +87,7 @@ public class GUI extends JFrame {
         displayListPanel.add(displayListLabel3);
         displayListPanel.add(displayListLabel4);
         displayListPanel.add(displayListLabel5);
-        displayListPanel.setBorder(border);
+        displayListPanel.setBorder(testBoundsBorder);
 
         displayListLabel0.setText("Recent Notes:");
         displayListLabel0.setHorizontalAlignment(0);
