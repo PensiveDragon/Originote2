@@ -186,6 +186,9 @@ public class DatabaseHandler {
 
     ## Join can be used to find data from one table using information from another connected table. ##
 
+    TODO: Roll rebasing branch into master branch
+    TODO: Review new program objectives
+    TODO: Review Simon's emails and add other techs to the list
     TODO: Ask about deletion from SQL database, auto-increment, reusing old numbers (or not), any practical limits on entries
     TODO: Ask about tag association and deletion
     TODO: Look about fuzzy searching for tags / words - just the LIKE keyword?

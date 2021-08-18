@@ -29,7 +29,7 @@ public class GUI extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //this.setResizable(true);
         this.setSize(640,480);
-        this.setLayout(new BorderLayout(10,10));
+        this.setLayout(new BorderLayout(5,5));
         this.setVisible(true);
         this.setIconImage(image.getImage());
         //this.getContentPane().setBackground(Color.gray);
