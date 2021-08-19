@@ -87,7 +87,7 @@ public class GUI extends JFrame {
         this.add(menuBarPanel,BorderLayout.NORTH);
         this.add(bodyPanel,BorderLayout.CENTER);
         bodyPanel.add(searchBarPanel,BorderLayout.NORTH);
-        //this.add(recentNotesPanel,BorderLayout.SOUTH);
+        this.add(recentNotesPanel,BorderLayout.CENTER);
 
 
 
