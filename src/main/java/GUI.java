@@ -96,7 +96,7 @@ public class GUI extends JFrame {
 
 
         displayListPanel.setLayout(new GridLayout(6,1));
-        displayListPanel.setBounds(10,50, 480,250);
+        displayListPanel.setBounds(10,50, 600,250);
         displayListPanel.add(displayListLabel0);
         displayListPanel.add(displayListLabel1);
         displayListPanel.add(displayListLabel2);
