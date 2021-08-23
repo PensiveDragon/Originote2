@@ -91,7 +91,7 @@ public class GUI extends JFrame {
 
 
 
-
+        DatabaseHandler databaseHandler = new DatabaseHandler();
 
 
 
@@ -109,7 +109,7 @@ public class GUI extends JFrame {
         displayListLabel0.setHorizontalAlignment(0);
         //displayListLabel0.setBorder(border);
 
-        displayListLabel1.setText(" 1:");
+        displayListLabel1.setText(" 1: " + databaseHandler.findNoteDataByID(1).getTitle() + " : " + databaseHandler.findNoteDataByID(1).getBody());
         //displayListLabel1.setBorder(border);
 
         displayListLabel2.setText(" 2:");

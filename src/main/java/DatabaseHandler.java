@@ -60,6 +60,8 @@ public class DatabaseHandler {
         }
     }
 
+    // findTagDatasByID
+
     public void storeNoteDataAtNextID(NoteContent noteContent) {
 
         try {
