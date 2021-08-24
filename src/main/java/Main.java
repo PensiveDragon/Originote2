@@ -13,6 +13,8 @@ public class Main {
 
         System.out.println(databaseHandler.findTagDataByTag("film"));
 
+        System.out.println("All note data: " + databaseHandler.findAllNoteData());
+
         NoteContent testData = new NoteContent();
         testData.setTitle("Test Data");
         testData.setBody("Test Content");
@@ -26,6 +28,12 @@ public class Main {
 
         //databaseHandler.deleteAllTagsAtID(3);
         databaseHandler.deleteSpecificTagAtID("Hat", 3);
+
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] result = guiFunctionHandler.simpleFindMostRecentNoteIDs();
+        for (int item : result) {
+            System.out.println(item);
+        }
 
 
         System.out.println(databaseHandler.findTagDataByID(1));

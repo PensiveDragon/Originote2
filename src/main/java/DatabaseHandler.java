@@ -7,6 +7,21 @@ public class DatabaseHandler {
 
     Jdbi jdbi = Jdbi.create("jdbc:mysql://localhost:3306/originote", "root", System.getenv("MYSQL_PW"));
 
+    public List<NoteContent> findAllNoteData() {
+
+        List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM note_content")
+                    .mapToBean(NoteContent.class)
+                    .list();
+        });
+
+        if (NoteContents.size()!=0) {
+            return NoteContents;
+        } else {
+            return null;
+        }
+    }
+
     public NoteContent findNoteDataByID(int id) {
 
         List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
@@ -44,6 +59,10 @@ public class DatabaseHandler {
 
         return null;
     }
+
+    // findNoteDatabyTag ## USES JOIN Keyword
+    // select * from note_content, tags_to_notes where notes.id = tags.node_id
+    // select * from note_content join tags_to_notes on notes.id = tags.node_id
 
     public List<TagContent> findTagDataByTag(String tag) {
 

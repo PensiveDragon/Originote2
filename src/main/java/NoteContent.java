@@ -15,6 +15,8 @@ public class NoteContent {
     private int id;
     private String title;
     private String body;
+    private long date;
+
 
     public int getId() {
         return id;
