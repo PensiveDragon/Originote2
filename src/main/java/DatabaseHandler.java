@@ -60,7 +60,20 @@ public class DatabaseHandler {
         }
     }
 
-    // findTagDatasByID
+    public List<TagContent> findTagDataByID(int id) {
+
+        List<TagContent> TagContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM tags_to_notes WHERE note_id=" + id)
+                    .mapToBean(TagContent.class)
+                    .list();
+        });
+
+        if (TagContents.size()!=0) {
+            return TagContents;
+        } else {
+            return null;
+        }
+    }
 
     public void storeNoteDataAtNextID(NoteContent noteContent) {
 

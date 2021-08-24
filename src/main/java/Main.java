@@ -27,6 +27,9 @@ public class Main {
         //databaseHandler.deleteAllTagsAtID(3);
         databaseHandler.deleteSpecificTagAtID("Hat", 3);
 
+
+        System.out.println(databaseHandler.findTagDataByID(1));
+
         //databaseHandler.storeNoteDataAtNextID(testData);
         //databaseHandler.deleteNoteDataAtID(4);
 
