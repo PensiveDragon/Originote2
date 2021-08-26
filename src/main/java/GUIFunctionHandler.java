@@ -21,8 +21,8 @@ public class GUIFunctionHandler {
         // top 5 highest id values
         List<NoteContent> noteContents = databaseHandler.findAllNoteData();
 
+        int i = 0;
         for (NoteContent noteContent : noteContents) {
-            int i = 0;
             recentIDs[i] = noteContent.getId();
             i++;
         }

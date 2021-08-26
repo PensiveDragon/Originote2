@@ -23,23 +23,23 @@ public class Main {
         tagData.setTag("Hats");
         tagData.setNote_id(testData.getId());
 
-        //databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
+        databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
         databaseHandler.addTagToSpecificID("Hat", 3);
 
-        //databaseHandler.deleteAllTagsAtID(3);
+        databaseHandler.deleteAllTagsAtID(3);
         databaseHandler.deleteSpecificTagAtID("Hat", 3);
 
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         int[] result = guiFunctionHandler.simpleFindMostRecentNoteIDs();
         for (int item : result) {
-            System.out.println(item);
+            System.out.println("Simple Most Recent Note IDs: " + item);
         }
 
 
         System.out.println(databaseHandler.findTagDataByID(1));
 
-        //databaseHandler.storeNoteDataAtNextID(testData);
-        //databaseHandler.deleteNoteDataAtID(4);
+        databaseHandler.storeNoteDataAtNextID(testData);
+        databaseHandler.deleteNoteDataAtID(4);
 
         NoteContent updateTestData = new NoteContent();
         updateTestData.setId(3);
