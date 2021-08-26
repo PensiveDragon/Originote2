@@ -1,3 +1,5 @@
+import java.time.LocalDateTime;
+
 public class NoteContent {
 
     public void setId(int id) {
@@ -12,11 +14,12 @@ public class NoteContent {
         this.body = body;
     }
 
+    public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
+
     private int id;
     private String title;
     private String body;
-    private long date;
-
+    private LocalDateTime dateTime;
 
     public int getId() {
         return id;
@@ -27,6 +30,7 @@ public class NoteContent {
     public String getBody() {
         return body;
     }
+    public LocalDateTime getDateTime() { return dateTime; }
 
     @Override
     public String toString() {
@@ -34,6 +38,7 @@ public class NoteContent {
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", body='" + body + '\'' +
+                ", dateTime=" + dateTime +
                 '}';
     }
 }

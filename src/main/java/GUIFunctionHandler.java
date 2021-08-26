@@ -36,6 +36,7 @@ public class GUIFunctionHandler {
 
         // read db list of most recently created / altered note ids - FIFO stack? Timestamp column?
 
+
         return recentIDs;
     }
 }

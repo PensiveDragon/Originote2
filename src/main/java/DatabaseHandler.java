@@ -94,6 +94,21 @@ public class DatabaseHandler {
         }
     }
 
+    public List<NoteContent> findMostRecentFiveNoteData() {
+
+        List<NoteContent> NoteContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM note_content ORDER BY date_time DESC LIMIT 5")
+                    .mapToBean(NoteContent.class)
+                    .list();
+        });
+
+        if (NoteContents.size()!=0) {
+            return NoteContents;
+        } else {
+            return null;
+        }
+    }
+
     public void storeNoteDataAtNextID(NoteContent noteContent) {
 
         try {

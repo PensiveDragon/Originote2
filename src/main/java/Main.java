@@ -1,3 +1,8 @@
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatterBuilder;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -18,6 +23,7 @@ public class Main {
         NoteContent testData = new NoteContent();
         testData.setTitle("Test Data");
         testData.setBody("Test Content");
+        testData.setDateTime(LocalDateTime.now());
 
         TagContent tagData = new TagContent();
         tagData.setTag("Hats");
@@ -38,13 +44,14 @@ public class Main {
 
         System.out.println(databaseHandler.findTagDataByID(1));
 
-        databaseHandler.storeNoteDataAtNextID(testData);
-        databaseHandler.deleteNoteDataAtID(4);
+        //databaseHandler.storeNoteDataAtNextID(testData);
+        //databaseHandler.deleteNoteDataAtID(4);
 
         NoteContent updateTestData = new NoteContent();
         updateTestData.setId(3);
         updateTestData.setTitle("Updated Data");
         updateTestData.setBody("Updated Content");
+        updateTestData.setDateTime(LocalDateTime.now());
 
         databaseHandler.updateNoteDataAtSpecificID(updateTestData);
 
