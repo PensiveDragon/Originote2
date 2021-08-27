@@ -36,9 +36,11 @@ public class Main {
         databaseHandler.deleteSpecificTagAtID("Hat", 3);
 
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
-        int[] result = guiFunctionHandler.simpleFindMostRecentNoteIDs();
+        //int[] result = guiFunctionHandler.simpleFindMostRecentNoteIDs();
+        int[] result = guiFunctionHandler.findMostRecentNoteIDs();
         for (int item : result) {
-            System.out.println("Simple Most Recent Note IDs: " + item);
+            //System.out.println("Simple Most Recent Note IDs: " + item);
+            System.out.println("Smart Most Recent Note IDs: " + item);
         }
 
 

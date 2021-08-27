@@ -35,7 +35,14 @@ public class GUIFunctionHandler {
         int[] recentIDs = new int[5];
 
         // read db list of most recently created / altered note ids - FIFO stack? Timestamp column?
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        List<NoteContent> noteContents = databaseHandler.findMostRecentFiveNoteData();
 
+        int i = 0;
+        for (NoteContent noteContent : noteContents) {
+            recentIDs[i] = noteContent.getId();
+            i++;
+        }
 
         return recentIDs;
     }
