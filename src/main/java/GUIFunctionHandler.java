@@ -46,4 +46,14 @@ public class GUIFunctionHandler {
 
         return recentIDs;
     }
+
+    public String createDisplayListLabelText(int list_int, int note_id) {
+
+        String labelText = "";
+
+        labelText = " " + list_int + ": " + databaseHandler.findNoteDataByID(note_id).getTitle() + " : " + databaseHandler.findNoteDataByID(note_id).getBody();
+//        labelText = " " + list_int + ": " + databaseHandler.findNoteDataByID(note_id).getTitle() + " : " + databaseHandler.findNoteDataByID(note_id).getBody();
+
+        return labelText;
+    }
 }
