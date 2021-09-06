@@ -1,14 +1,18 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
     JPanel searchBarPanel = new JPanel();
     JPanel recentNotesPanel = new JPanel();
     JPanel displayListPanel = new JPanel();
+
+    JButton newNoteButton;
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel displayListLabel0 = new JLabel();
@@ -49,9 +53,10 @@ public class GUI extends JFrame {
         originoteIconjLabel.setHorizontalAlignment(JLabel.CENTER);
         originoteIconjLabel.setVerticalAlignment(JLabel.CENTER);
 
-        JButton newNoteButton = new JButton();
+        newNoteButton = new JButton();
         newNoteButton.setText("New Note");
         newNoteButton.setBackground(Color.white);
+        newNoteButton.addActionListener(this);
 
         JButton listNotesButton = new JButton();
         listNotesButton.setText("List Notes");
@@ -151,6 +156,12 @@ public class GUI extends JFrame {
         }
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==newNoteButton) {
+            System.out.println("New Note Button Clicked!");
+        }
+    }
 }
 
 /* Improve UI:

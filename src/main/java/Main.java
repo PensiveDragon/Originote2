@@ -46,11 +46,11 @@ public class Main {
 
         System.out.println(databaseHandler.findTagDataByID(1));
 
-        //databaseHandler.storeNoteDataAtNextID(testData);
+        databaseHandler.storeNoteDataAtNextID(testData);
         //databaseHandler.deleteNoteDataAtID(4);
 
         NoteContent updateTestData = new NoteContent();
-        updateTestData.setId(3);
+        updateTestData.setId(5);
         updateTestData.setTitle("Updated Data");
         updateTestData.setBody("Updated Content");
         updateTestData.setDateTime(LocalDateTime.now());
