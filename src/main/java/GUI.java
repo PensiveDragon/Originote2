@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUI extends JFrame implements ActionListener {
+public class GUI extends JFrame {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
@@ -57,13 +57,13 @@ public class GUI extends JFrame implements ActionListener {
         newNoteButton = new JButton();
         newNoteButton.setText("New Note");
         newNoteButton.setBackground(Color.white);
-        newNoteButton.addActionListener(this);
+        newNoteButton.addActionListener(e -> System.out.println("New Note Button Clicked!"));
         newNoteButton.setFocusable(false);
 
         listNotesButton = new JButton();
         listNotesButton.setText("List Notes");
         listNotesButton.setBackground(Color.white);
-        listNotesButton.addActionListener(this);
+        listNotesButton.addActionListener(e -> System.out.println("List Notes Button Clicked!"));
         listNotesButton.setFocusable(false);
 
         menuBarPanel.add(originoteIconjLabel);
@@ -160,15 +160,7 @@ public class GUI extends JFrame implements ActionListener {
         }
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==newNoteButton) {
-            System.out.println("New Note Button Clicked!");
-        }
-        if (e.getSource()==listNotesButton) {
-            System.out.println("List Notes Button Clicked!");
-        }
-    }
+
 }
 
 /* Improve UI:
