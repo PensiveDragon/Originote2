@@ -13,6 +13,7 @@ public class GUI extends JFrame implements ActionListener {
     JPanel displayListPanel = new JPanel();
 
     JButton newNoteButton;
+    JButton listNotesButton;
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel displayListLabel0 = new JLabel();
@@ -57,10 +58,13 @@ public class GUI extends JFrame implements ActionListener {
         newNoteButton.setText("New Note");
         newNoteButton.setBackground(Color.white);
         newNoteButton.addActionListener(this);
+        newNoteButton.setFocusable(false);
 
-        JButton listNotesButton = new JButton();
+        listNotesButton = new JButton();
         listNotesButton.setText("List Notes");
         listNotesButton.setBackground(Color.white);
+        listNotesButton.addActionListener(this);
+        listNotesButton.setFocusable(false);
 
         menuBarPanel.add(originoteIconjLabel);
         menuBarPanel.add(newNoteButton);
@@ -160,6 +164,9 @@ public class GUI extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==newNoteButton) {
             System.out.println("New Note Button Clicked!");
+        }
+        if (e.getSource()==listNotesButton) {
+            System.out.println("List Notes Button Clicked!");
         }
     }
 }
