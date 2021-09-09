@@ -23,7 +23,7 @@ public class GUI extends JFrame {
     JLabel displayListLabel4 = new JLabel();
     JLabel displayListLabel5 = new JLabel();
 
-    JLabel recentNotes[] = new JLabel[5];
+    JButton recentNotes[] = new JButton[5];
 
     ImageIcon image = new ImageIcon("Originote.png");
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
@@ -105,8 +105,6 @@ public class GUI extends JFrame {
         displayListPanel.setLayout(new GridLayout(6,1, 5, 5));
         displayListPanel.setBounds(10,50, 600,250);
         displayListPanel.setBackground(Color.white);
-
-
         displayListPanel.add(displayListLabel0);
         //displayListPanel.setBorder(testBoundsBorder);
 
@@ -128,10 +126,13 @@ public class GUI extends JFrame {
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
 
-        for(JLabel note : recentNotes) {
-            note = new JLabel();
+        for(JButton note : recentNotes) {
+            note = new JButton();
             displayListPanel.add(note);
+            note.setBackground(Color.white);
             note.setBorder(testBoundsBorder);
+            note.setHorizontalTextPosition(SwingConstants.LEFT);
+            note.addActionListener(e -> System.out.println("List Item Button Clicked!"));
 
             if (recentIDs[n] > 0) {
                 note.setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
