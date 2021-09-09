@@ -100,43 +100,21 @@ public class GUI extends JFrame {
         bodyPanel.add(searchBarPanel,BorderLayout.NORTH);
         this.add(recentNotesPanel,BorderLayout.CENTER);
 
-
-
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
-
-
-        displayListPanel.setLayout(new GridLayout(6,1));
+        displayListPanel.setLayout(new GridLayout(6,1, 5, 5));
         displayListPanel.setBounds(10,50, 600,250);
+        displayListPanel.setBackground(Color.white);
+
+
         displayListPanel.add(displayListLabel0);
-//        displayListPanel.add(displayListLabel1);
-//        displayListPanel.add(displayListLabel2);
-//        displayListPanel.add(displayListLabel3);
-//        displayListPanel.add(displayListLabel4);
-//        displayListPanel.add(displayListLabel5);
-        displayListPanel.setBorder(testBoundsBorder);
+        //displayListPanel.setBorder(testBoundsBorder);
 
         displayListLabel0.setText("Recent Notes:");
         displayListLabel0.setHorizontalAlignment(0);
-        //displayListLabel0.setBorder(border);
-/*
-        displayListLabel1.setText(" 1: " + databaseHandler.findNoteDataByID(1).getTitle() + " : " + databaseHandler.findNoteDataByID(1).getBody());
-        //displayListLabel1.setBorder(border);
+        //displayListLabel0.setBorder(testBoundsBorder);
 
-        displayListLabel2.setText(" 2:");
-        //displayListLabel2.setBorder(border);
-
-        displayListLabel3.setText(" 3:");
-        //displayListLabel3.setBorder(border);
-
-        displayListLabel4.setText(" 4:");
-        //displayListLabel4.setBorder(border);
-
-        displayListLabel5.setText(" 5:");
-        //displayListLabel5.setBorder(border);
-*/
         populateRecentNotes();
-
 
         recentNotesPanel.setLayout(null);
         recentNotesPanel.add(displayListPanel);
@@ -153,6 +131,7 @@ public class GUI extends JFrame {
         for(JLabel note : recentNotes) {
             note = new JLabel();
             displayListPanel.add(note);
+            note.setBorder(testBoundsBorder);
 
             if (recentIDs[n] > 0) {
                 note.setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
