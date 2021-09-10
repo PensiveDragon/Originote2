@@ -1,8 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class GUI extends JFrame {
 
@@ -16,12 +14,7 @@ public class GUI extends JFrame {
     JButton listNotesButton;
 
     JLabel originoteIconjLabel = new JLabel();
-    JLabel displayListLabel0 = new JLabel();
-    JLabel displayListLabel1 = new JLabel();
-    JLabel displayListLabel2 = new JLabel();
-    JLabel displayListLabel3 = new JLabel();
-    JLabel displayListLabel4 = new JLabel();
-    JLabel displayListLabel5 = new JLabel();
+    JLabel displayListLabel = new JLabel();
 
     JButton recentNotes[] = new JButton[5];
 
@@ -29,6 +22,7 @@ public class GUI extends JFrame {
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
     JTextField jSearchTextField = new JTextField();
     Border testBoundsBorder = BorderFactory.createLineBorder(Color.black, 1);
+    Font testFont = new Font("Default",Font.PLAIN,32);
 
     public GUI() {
 
@@ -102,14 +96,15 @@ public class GUI extends JFrame {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
-        displayListPanel.setLayout(new GridLayout(6,1, 5, 5));
+        displayListPanel.setLayout(new GridLayout(6,1, 8, 8));
         displayListPanel.setBounds(10,50, 600,250);
         displayListPanel.setBackground(Color.white);
-        displayListPanel.add(displayListLabel0);
+        displayListPanel.add(displayListLabel);
         //displayListPanel.setBorder(testBoundsBorder);
 
-        displayListLabel0.setText("Recent Notes:");
-        displayListLabel0.setHorizontalAlignment(0);
+        displayListLabel.setText("Recent Notes:");
+        displayListLabel.setFont(testFont);
+        displayListLabel.setHorizontalAlignment(0);
         //displayListLabel0.setBorder(testBoundsBorder);
 
         populateRecentNotes();
@@ -131,7 +126,8 @@ public class GUI extends JFrame {
             displayListPanel.add(note);
             note.setBackground(Color.white);
             note.setBorder(testBoundsBorder);
-            note.setHorizontalTextPosition(SwingConstants.LEFT);
+            note.setHorizontalAlignment(SwingConstants.LEFT);
+            note.setFocusable(false);
             note.addActionListener(e -> System.out.println("List Item Button Clicked!"));
 
             if (recentIDs[n] > 0) {
