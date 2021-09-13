@@ -128,7 +128,9 @@ public class GUI extends JFrame {
             note.setBorder(testBoundsBorder);
             note.setHorizontalAlignment(SwingConstants.LEFT);
             note.setFocusable(false);
-            note.addActionListener(e -> System.out.println("List Item Button Clicked!"));
+            note.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
+
+            //TODO: Ask Chris whether this can dynamically look up the button's ID within this implementation.
 
             if (recentIDs[n] > 0) {
                 note.setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
