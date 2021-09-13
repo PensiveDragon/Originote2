@@ -138,6 +138,28 @@ public class GUI extends JFrame {
         }
     }
 
+    private void populateRecentNotes2() {
+        int n = 0;
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+
+        for(JButton note : recentNotes) {
+            note = new JButton();
+            displayListPanel.add(note);
+            note.setBackground(Color.white);
+            note.setBorder(testBoundsBorder);
+            note.setHorizontalAlignment(SwingConstants.LEFT);
+            note.setFocusable(false);
+            note.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
+
+            //TODO: Investigate creating typical alternative with unique named buttons for 5 notes.
+
+            if (recentIDs[n] > 0) {
+                note.setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
+            }
+        }
+    }
+
 
 }
 
