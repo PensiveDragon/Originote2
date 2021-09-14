@@ -41,7 +41,7 @@ public class GUI extends JFrame {
 
         menuBarPanel.setPreferredSize(new Dimension(640,50));
         menuBarPanel.setBackground(Color.white);
-        menuBarPanel.setLayout(new GridLayout(1,3));
+        menuBarPanel.setLayout(new GridLayout(1,3, 5, 5));
 
         originoteIconjLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
         originoteIconjLabel.setPreferredSize(new Dimension(130,50));
@@ -107,7 +107,8 @@ public class GUI extends JFrame {
         displayListLabel.setHorizontalAlignment(0);
         //displayListLabel0.setBorder(testBoundsBorder);
 
-        populateRecentNotes();
+        //populateRecentNotes();
+        populateRecentNotes2();
 
         recentNotesPanel.setLayout(null);
         recentNotesPanel.add(displayListPanel);
@@ -143,9 +144,21 @@ public class GUI extends JFrame {
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
 
+        JButton note1 = new JButton();
+        JButton note2 = new JButton();
+        JButton note3 = new JButton();
+        JButton note4 = new JButton();
+        JButton note5 = new JButton();
+
+        displayListPanel.add(note1);
+        displayListPanel.add(note2);
+        displayListPanel.add(note3);
+        displayListPanel.add(note4);
+        displayListPanel.add(note5);
+
         for(JButton note : recentNotes) {
             note = new JButton();
-            displayListPanel.add(note);
+
             note.setBackground(Color.white);
             note.setBorder(testBoundsBorder);
             note.setHorizontalAlignment(SwingConstants.LEFT);
