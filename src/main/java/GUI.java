@@ -156,14 +156,39 @@ public class GUI extends JFrame {
         displayListPanel.add(note4);
         displayListPanel.add(note5);
 
+        note1.setBackground(Color.white);
+        note2.setBackground(Color.white);
+        note3.setBackground(Color.white);
+        note4.setBackground(Color.white);
+        note5.setBackground(Color.white);
+
+        note1.setBorder(testBoundsBorder);
+        note2.setBorder(testBoundsBorder);
+        note3.setBorder(testBoundsBorder);
+        note4.setBorder(testBoundsBorder);
+        note5.setBorder(testBoundsBorder);
+
+        note1.setHorizontalAlignment(SwingConstants.LEFT);
+        note2.setHorizontalAlignment(SwingConstants.LEFT);
+        note3.setHorizontalAlignment(SwingConstants.LEFT);
+        note4.setHorizontalAlignment(SwingConstants.LEFT);
+        note5.setHorizontalAlignment(SwingConstants.LEFT);
+
+        note1.setFocusable(false);
+        note2.setFocusable(false);
+        note3.setFocusable(false);
+        note4.setFocusable(false);
+        note5.setFocusable(false);
+
+        note1.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
+        note2.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[1]));
+        note3.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[2]));
+        note4.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[3]));
+        note5.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[4]));
+
         for(JButton note : recentNotes) {
             note = new JButton();
 
-            note.setBackground(Color.white);
-            note.setBorder(testBoundsBorder);
-            note.setHorizontalAlignment(SwingConstants.LEFT);
-            note.setFocusable(false);
-            note.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
 
             //TODO: Investigate creating typical alternative with unique named buttons for 5 notes.
 
