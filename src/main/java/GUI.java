@@ -108,7 +108,8 @@ public class GUI extends JFrame {
         //displayListLabel0.setBorder(testBoundsBorder);
 
         //populateRecentNotes();
-        populateRecentNotes2();
+        //populateRecentNotes2();
+        populateRecentNotes3();
 
         recentNotesPanel.setLayout(null);
         recentNotesPanel.add(displayListPanel);
@@ -198,6 +199,25 @@ public class GUI extends JFrame {
         }
     }
 
+    private void populateRecentNotes3() {
+        int n = 0;
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+
+        for (int i = 0; i <5; i++) {
+            recentNotes[i] = new JButton();
+            displayListPanel.add(recentNotes[i]);
+            recentNotes[i].setBackground(Color.white);
+            recentNotes[i].setBorder(testBoundsBorder);
+            recentNotes[i].setHorizontalAlignment(SwingConstants.LEFT);
+            recentNotes[i].setFocusable(false);
+            recentNotes[i].addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
+
+            if (recentIDs[n] > 0) {
+                recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
+            }
+        }
+    }
 
 }
 
