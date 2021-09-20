@@ -1,8 +1,10 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
@@ -211,7 +213,8 @@ public class GUI extends JFrame {
             recentNotes[i].setBorder(testBoundsBorder);
             recentNotes[i].setHorizontalAlignment(SwingConstants.LEFT);
             recentNotes[i].setFocusable(false);
-            recentNotes[i].addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
+            recentNotes[i].addActionListener(this);
+            //recentNotes[i].addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
 
             if (recentIDs[n] > 0) {
                 recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
@@ -219,6 +222,29 @@ public class GUI extends JFrame {
         }
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+        if (e.getSource()==recentNotes[0]) {
+            System.out.println("first");
+            System.out.println("ID: " + recentIDs[0]);
+        } else if (e.getSource()==recentNotes[1]) {
+            System.out.println("second");
+            System.out.println("ID: " + recentIDs[1]);
+        } else if (e.getSource()==recentNotes[2]) {
+            System.out.println("third");
+            System.out.println("ID: " + recentIDs[2]);
+        } else if (e.getSource()==recentNotes[3]) {
+            System.out.println("forth");
+            System.out.println("ID: " + recentIDs[3]);
+        } else if (e.getSource()==recentNotes[4]) {
+            System.out.println("fifth");
+            System.out.println("ID: " + recentIDs[4]);
+        } else {
+            System.out.println("none");
+        };
+    }
 }
 
 /* Improve UI:
