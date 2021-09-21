@@ -30,9 +30,9 @@ public class GUI extends JFrame implements ActionListener {
 
         this.setTitle("Originote");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //this.setResizable(true);
+        this.setResizable(false);
         this.setSize(640,480);
-        this.setLayout(new BorderLayout(5,5));
+        this.setLayout(new BorderLayout(10, 10));
         this.setVisible(true);
         this.setIconImage(image.getImage());
         //this.getContentPane().setBackground(Color.gray);
@@ -68,20 +68,25 @@ public class GUI extends JFrame implements ActionListener {
 
         bodyPanel.setLayout(new BorderLayout(10,10));
 
+
         //### SEARCH BAR PANEL SETUP
 
-        searchBarPanel.setPreferredSize(new Dimension(640,50));
+
+        //searchBarPanel.setPreferredSize(new Dimension(640,50));
         searchBarPanel.setBackground(Color.white);
         searchBarPanel.setLayout(new FlowLayout());
         searchBarPanel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        searchBarPanel.validate();
 
         JButton searchButton = new JButton();
         searchButton.setText("Search");
+        searchButton.setBackground(Color.white);
+        searchButton.addActionListener(e -> System.out.println("Search Button Clicked!"));
+        searchButton.setFocusable(false);
 
         jSearchTextField.setToolTipText("Search Bar");
         jSearchTextField.setText("Enter your search...");
         jSearchTextField.setPreferredSize(new Dimension(400,30));
-
 
         searchBarPanel.add(searchButton);
         searchBarPanel.add(jSearchTextField);
@@ -93,8 +98,8 @@ public class GUI extends JFrame implements ActionListener {
 
         this.add(menuBarPanel,BorderLayout.NORTH);
         this.add(bodyPanel,BorderLayout.CENTER);
+        bodyPanel.add(recentNotesPanel,BorderLayout.CENTER);
         bodyPanel.add(searchBarPanel,BorderLayout.NORTH);
-        this.add(recentNotesPanel,BorderLayout.CENTER);
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
@@ -113,7 +118,7 @@ public class GUI extends JFrame implements ActionListener {
         //populateRecentNotes2();
         populateRecentNotes3();
 
-        recentNotesPanel.setLayout(null);
+        recentNotesPanel.setLayout(new FlowLayout());
         recentNotesPanel.add(displayListPanel);
 
         this.validate();
@@ -214,7 +219,6 @@ public class GUI extends JFrame implements ActionListener {
             recentNotes[i].setHorizontalAlignment(SwingConstants.LEFT);
             recentNotes[i].setFocusable(false);
             recentNotes[i].addActionListener(this);
-            //recentNotes[i].addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
 
             if (recentIDs[n] > 0) {
                 recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
@@ -227,8 +231,7 @@ public class GUI extends JFrame implements ActionListener {
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
         if (e.getSource()==recentNotes[0]) {
-            System.out.println("first");
-            System.out.println("ID: " + recentIDs[0]);
+            System.out.println("First Entry. Note ID: " + recentIDs[0]);
         } else if (e.getSource()==recentNotes[1]) {
             System.out.println("second");
             System.out.println("ID: " + recentIDs[1]);
