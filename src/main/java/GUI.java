@@ -214,6 +214,7 @@ public class GUI extends JFrame implements ActionListener {
         for (int i = 0; i <5; i++) {
             recentNotes[i] = new JButton();
             displayListPanel.add(recentNotes[i]);
+            recentNotes[i].setPreferredSize(new Dimension(500, 40));
             recentNotes[i].setBackground(Color.white);
             recentNotes[i].setBorder(testBoundsBorder);
             recentNotes[i].setHorizontalAlignment(SwingConstants.LEFT);
@@ -233,17 +234,13 @@ public class GUI extends JFrame implements ActionListener {
         if (e.getSource()==recentNotes[0]) {
             System.out.println("First Entry. Note ID: " + recentIDs[0]);
         } else if (e.getSource()==recentNotes[1]) {
-            System.out.println("second");
-            System.out.println("ID: " + recentIDs[1]);
+            System.out.println("Second Entry. Note ID: " + recentIDs[1]);
         } else if (e.getSource()==recentNotes[2]) {
-            System.out.println("third");
-            System.out.println("ID: " + recentIDs[2]);
+            System.out.println("Third Entry. Note ID: " + recentIDs[2]);
         } else if (e.getSource()==recentNotes[3]) {
-            System.out.println("forth");
-            System.out.println("ID: " + recentIDs[3]);
+            System.out.println("Forth Entry. Note ID: " + recentIDs[3]);
         } else if (e.getSource()==recentNotes[4]) {
-            System.out.println("fifth");
-            System.out.println("ID: " + recentIDs[4]);
+            System.out.println("Fifth Entry. Note ID: " + recentIDs[4]);
         } else {
             System.out.println("none");
         };
