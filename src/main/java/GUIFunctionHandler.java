@@ -55,8 +55,4 @@ public class GUIFunctionHandler {
 
         return labelText;
     }
-
-    public int returnNoteID () {
-        return 0;
-    }
 }

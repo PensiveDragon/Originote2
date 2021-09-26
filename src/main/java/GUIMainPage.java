@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GUI extends JFrame implements ActionListener {
+public class GUIMainPage extends JFrame implements ActionListener {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
@@ -26,7 +26,7 @@ public class GUI extends JFrame implements ActionListener {
     Border testBoundsBorder = BorderFactory.createLineBorder(Color.black, 1);
     Font testFont = new Font("Default",Font.PLAIN,32);
 
-    public GUI() {
+    public GUIMainPage() {
 
         this.setTitle("Originote");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -114,9 +114,7 @@ public class GUI extends JFrame implements ActionListener {
         displayListLabel.setHorizontalAlignment(0);
         //displayListLabel0.setBorder(testBoundsBorder);
 
-        //populateRecentNotes();
-        //populateRecentNotes2();
-        populateRecentNotes3();
+        populateRecentNotes();
 
         recentNotesPanel.setLayout(new FlowLayout());
         recentNotesPanel.add(displayListPanel);
@@ -126,87 +124,6 @@ public class GUI extends JFrame implements ActionListener {
     }
 
     private void populateRecentNotes() {
-        int n = 0;
-        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
-        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
-
-        for(JButton note : recentNotes) {
-            note = new JButton();
-            displayListPanel.add(note);
-            note.setBackground(Color.white);
-            note.setBorder(testBoundsBorder);
-            note.setHorizontalAlignment(SwingConstants.LEFT);
-            note.setFocusable(false);
-            note.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
-
-            //TODO: Ask Chris whether this can dynamically look up the button's ID within this implementation.
-
-            if (recentIDs[n] > 0) {
-                note.setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
-            }
-        }
-    }
-
-    private void populateRecentNotes2() {
-        int n = 0;
-        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
-        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
-
-        JButton note1 = new JButton();
-        JButton note2 = new JButton();
-        JButton note3 = new JButton();
-        JButton note4 = new JButton();
-        JButton note5 = new JButton();
-
-        displayListPanel.add(note1);
-        displayListPanel.add(note2);
-        displayListPanel.add(note3);
-        displayListPanel.add(note4);
-        displayListPanel.add(note5);
-
-        note1.setBackground(Color.white);
-        note2.setBackground(Color.white);
-        note3.setBackground(Color.white);
-        note4.setBackground(Color.white);
-        note5.setBackground(Color.white);
-
-        note1.setBorder(testBoundsBorder);
-        note2.setBorder(testBoundsBorder);
-        note3.setBorder(testBoundsBorder);
-        note4.setBorder(testBoundsBorder);
-        note5.setBorder(testBoundsBorder);
-
-        note1.setHorizontalAlignment(SwingConstants.LEFT);
-        note2.setHorizontalAlignment(SwingConstants.LEFT);
-        note3.setHorizontalAlignment(SwingConstants.LEFT);
-        note4.setHorizontalAlignment(SwingConstants.LEFT);
-        note5.setHorizontalAlignment(SwingConstants.LEFT);
-
-        note1.setFocusable(false);
-        note2.setFocusable(false);
-        note3.setFocusable(false);
-        note4.setFocusable(false);
-        note5.setFocusable(false);
-
-        note1.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[0]));
-        note2.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[1]));
-        note3.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[2]));
-        note4.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[3]));
-        note5.addActionListener(e -> System.out.println("List Item Button Clicked! ID = " + recentIDs[4]));
-
-        for(JButton note : recentNotes) {
-            note = new JButton();
-
-
-            //TODO: Investigate creating typical alternative with unique named buttons for 5 notes.
-
-            if (recentIDs[n] > 0) {
-                note.setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
-            }
-        }
-    }
-
-    private void populateRecentNotes3() {
         int n = 0;
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();

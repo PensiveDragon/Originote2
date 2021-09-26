@@ -1,7 +1,4 @@
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatterBuilder;
 
 public class Main {
 
@@ -57,7 +54,7 @@ public class Main {
 
         databaseHandler.updateNoteDataAtSpecificID(updateTestData);
 
-        GUI gui = new GUI();
+        GUIMainPage guiMainPage = new GUIMainPage();
 
 
     }
