@@ -55,9 +55,6 @@ public class Main {
         databaseHandler.updateNoteDataAtSpecificID(updateTestData);
 
         GUIMainPage guiMainPage = new GUIMainPage();
-
-
-
     }
 }
 
