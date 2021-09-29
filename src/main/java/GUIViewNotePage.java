@@ -13,7 +13,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
 
     public GUIViewNotePage(int note_id) {
-        this.setTitle("Originote - View Note: " + note_id);
+        //this.setTitle("Originote - View Note: " + note_id);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setSize(640,480);
@@ -21,6 +21,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setIconImage(image.getImage());
 
+        populateNoteDetails(note_id);
 
         //### MENU BAR PANEL SETUP
 
@@ -39,6 +40,10 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
         bodyPanel.setLayout(new BorderLayout(10,10));
 
+    }
+
+    public void populateNoteDetails(int note_id) {
+        this.setTitle("Originote - View Note: " + note_id);
     }
 
     @Override
