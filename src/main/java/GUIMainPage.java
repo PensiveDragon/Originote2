@@ -151,19 +151,19 @@ public class GUIMainPage extends JFrame implements ActionListener {
         int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
         if (e.getSource()==recentNotes[0]) {
             System.out.println("First Entry. Note ID: " + recentIDs[0]);
-            new GUIViewNotePage(recentIDs[0]);
+            guiFunctionHandler.openNewViewNotePage(recentIDs[0]);
         } else if (e.getSource()==recentNotes[1]) {
             System.out.println("Second Entry. Note ID: " + recentIDs[1]);
-            new GUIViewNotePage(recentIDs[1]);
+            guiFunctionHandler.openNewViewNotePage(recentIDs[1]);
         } else if (e.getSource()==recentNotes[2]) {
             System.out.println("Third Entry. Note ID: " + recentIDs[2]);
-            new GUIViewNotePage(recentIDs[2]);
+            guiFunctionHandler.openNewViewNotePage(recentIDs[2]);
         } else if (e.getSource()==recentNotes[3]) {
             System.out.println("Forth Entry. Note ID: " + recentIDs[3]);
-            new GUIViewNotePage(recentIDs[3]);
+            guiFunctionHandler.openNewViewNotePage(recentIDs[3]);
         } else if (e.getSource()==recentNotes[4]) {
             System.out.println("Fifth Entry. Note ID: " + recentIDs[4]);
-            new GUIViewNotePage(recentIDs[4]);
+            guiFunctionHandler.openNewViewNotePage(recentIDs[4]);
         } else {
             System.out.println("none");
         };

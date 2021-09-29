@@ -55,4 +55,8 @@ public class GUIFunctionHandler {
 
         return labelText;
     }
+
+    public void openNewViewNotePage(int note_id) {
+        new GUIViewNotePage(note_id);
+    }
 }
