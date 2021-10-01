@@ -3,6 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 
 public class GUIViewNotePage extends JFrame implements ActionListener {
 
@@ -50,6 +51,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         bodyPanel.add(titleLabel);
         bodyPanel.add(tagsLabel);
         bodyPanel.add(bodyLabel);
+        bodyPanel.setBackground(Color.white);
 
         titleLabel.setPreferredSize(new Dimension(480, 40));
         titleLabel.setBackground(Color.white);
@@ -66,10 +68,13 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
     }
 
     public void populateNoteDetails(int note_id) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        NoteContent noteContent = databaseHandler.findNoteDataByID(note_id);
+        List<TagContent> tagContent = databaseHandler.findTagDataByID(note_id);
         this.setTitle("Originote - View Note: " + note_id);
-        titleLabel.setText("Title Label");
+        titleLabel.setText(noteContent.getTitle());
         tagsLabel.setText("Tags");
-        bodyLabel.setText("Body");
+        bodyLabel.setText(noteContent.getBody());
 
     }
 
