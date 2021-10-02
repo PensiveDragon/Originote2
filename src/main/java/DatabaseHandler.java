@@ -64,6 +64,22 @@ public class DatabaseHandler {
     // select * from note_content, tags_to_notes where notes.id = tags.node_id
     // select * from note_content join tags_to_notes on notes.id = tags.node_id
 
+    public String[] findTagsByNoteID(int id) {
+
+        String[] results;
+        List<TagContent> TagContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM note_content where notes.id = tags.node_id")
+                    .mapToBean(TagContent.class)
+                    .list();
+        });
+
+
+        results = new String[]{"Hat", "Fish"};
+
+
+        return results;
+    }
+
     public List<TagContent> findTagDataByTag(String tag) {
 
         List<TagContent> TagContents = jdbi.withHandle(handle -> {

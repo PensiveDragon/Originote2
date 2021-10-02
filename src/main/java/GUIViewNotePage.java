@@ -73,7 +73,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         List<TagContent> tagContent = databaseHandler.findTagDataByID(note_id);
         this.setTitle("Originote - View Note: " + note_id);
         titleLabel.setText(noteContent.getTitle());
-        tagsLabel.setText("Tags");
+        tagsLabel.setText(tagContent.toString());
         bodyLabel.setText(noteContent.getBody());
 
     }
