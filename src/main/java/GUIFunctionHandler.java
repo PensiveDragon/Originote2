@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Locale;
 
 public class GUIFunctionHandler {
 
@@ -58,5 +59,20 @@ public class GUIFunctionHandler {
 
     public void openNewViewNotePage(int note_id) {
         new GUIViewNotePage(note_id);
+    }
+
+    public String assembleTagsString(int note_id) {
+        String result = "";
+
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        String[] tags = databaseHandler.findTagsByID(note_id);
+        for (int i = 0; i < tags.length; i++) {
+            result += tags[i];
+            if ((tags.length - 1) > i) {
+                result += "  |  ";
+            }
+        }
+
+        return result;
     }
 }

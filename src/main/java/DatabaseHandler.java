@@ -64,18 +64,21 @@ public class DatabaseHandler {
     // select * from note_content, tags_to_notes where notes.id = tags.node_id
     // select * from note_content join tags_to_notes on notes.id = tags.node_id
 
-    public String[] findTagsByNoteID(int id) {
+    public String[] findTagsByID(int id) {
 
-        String[] results;
+
         List<TagContent> TagContents = jdbi.withHandle(handle -> {
-            return handle.createQuery("SELECT * FROM note_content where notes.id = tags.node_id")
+            return handle.createQuery("SELECT * FROM tags_to_notes where note_id='" + id + "'")
                     .mapToBean(TagContent.class)
                     .list();
         });
 
+        String[] results = new String[TagContents.size()];
 
-        results = new String[]{"Hat", "Fish"};
-
+        for (int i = 0; i < TagContents.size(); i++) {
+            results[i] = TagContents.get(i).getTag();
+            System.out.println("Results entry " + i + " added.");
+        }
 
         return results;
     }
