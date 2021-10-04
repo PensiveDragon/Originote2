@@ -62,7 +62,7 @@ public class GUIFunctionHandler {
     }
 
     public String assembleTagsString(int note_id) {
-        String result = "";
+        String result = "Tags: ";
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
         String[] tags = databaseHandler.findTagsByID(note_id);

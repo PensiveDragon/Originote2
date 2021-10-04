@@ -64,6 +64,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         bodyLabel.setPreferredSize(new Dimension(480, 160));
         bodyLabel.setBackground(Color.white);
         bodyLabel.setBorder(simpleBorder);
+        bodyLabel.setVerticalAlignment(SwingConstants.TOP);
 
     }
 

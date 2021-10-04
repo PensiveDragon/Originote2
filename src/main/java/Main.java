@@ -26,11 +26,11 @@ public class Main {
         tagData.setTag("Hats");
         tagData.setNote_id(testData.getId());
 
-        databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
-        databaseHandler.addTagToSpecificID("Hat", 3);
+        //databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
+        //databaseHandler.addTagToSpecificID("Hat", 3);
 
-        databaseHandler.deleteAllTagsAtID(3);
-        databaseHandler.deleteSpecificTagAtID("Hat", 3);
+        //databaseHandler.deleteAllTagsAtID(3);
+        //databaseHandler.deleteSpecificTagAtID("Hat", 3);
 
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         //int[] result = guiFunctionHandler.simpleFindMostRecentNoteIDs();
