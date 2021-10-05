@@ -62,12 +62,12 @@ public class GUIFunctionHandler {
     }
 
     public String assembleTagsString(int note_id) {
-        String result = "Tags: ";
+        String result = "";
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
         String[] tags = databaseHandler.findTagsByID(note_id);
         for (int i = 0; i < tags.length; i++) {
-            result += tags[i];
+            result += "#" + tags[i];
             if ((tags.length - 1) > i) {
                 result += "  |  ";
             }

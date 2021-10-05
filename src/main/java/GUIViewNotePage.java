@@ -9,6 +9,10 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
     ImageIcon image = new ImageIcon("Originote.png");
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
+    Border checkBorder = BorderFactory.createDashedBorder(Color.black);
+    Font titleFont = new Font("Default",Font.BOLD,24);
+    Font tagsFont = new Font("Default",Font.ITALIC,18);
+    Font bodyFont = new Font("Default",Font.PLAIN,18);
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
@@ -53,18 +57,22 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         bodyPanel.add(bodyLabel);
         bodyPanel.setBackground(Color.white);
 
-        titleLabel.setPreferredSize(new Dimension(480, 40));
+        titleLabel.setPreferredSize(new Dimension(480, 48));
         titleLabel.setBackground(Color.white);
-        titleLabel.setBorder(simpleBorder);
+        //titleLabel.setBorder(simpleBorder);
+        titleLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleLabel.setFont(titleFont);
 
-        tagsLabel.setPreferredSize(new Dimension(480, 40));
+        tagsLabel.setPreferredSize(new Dimension(480, 30));
         tagsLabel.setBackground(Color.white);
-        tagsLabel.setBorder(simpleBorder);
+        //tagsLabel.setBorder(simpleBorder);
+        tagsLabel.setFont(tagsFont);
 
-        bodyLabel.setPreferredSize(new Dimension(480, 160));
+        bodyLabel.setPreferredSize(new Dimension(480, 210));
         bodyLabel.setBackground(Color.white);
-        bodyLabel.setBorder(simpleBorder);
+        bodyLabel.setBorder(checkBorder);
         bodyLabel.setVerticalAlignment(SwingConstants.TOP);
+        bodyLabel.setFont(bodyFont);
 
     }
 
@@ -73,7 +81,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         NoteContent noteContent = databaseHandler.findNoteDataByID(note_id);
         List<TagContent> tagContent = databaseHandler.findTagDataByID(note_id);
-        this.setTitle("Originote - View Note: " + note_id);
+        this.setTitle("Originote - View Note: " + noteContent.getTitle());
         titleLabel.setText(noteContent.getTitle());
         tagsLabel.setText(guiFunctionHandler.assembleTagsString(note_id));
         bodyLabel.setText(noteContent.getBody());
