@@ -12,9 +12,9 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     JPanel bodyPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
-    JLabel titleFieldLabel = new JLabel();
-    JLabel tagsFieldLabel = new JLabel();
-    JLabel bodyFieldLabel = new JLabel();
+    JTextField titleTextFieldLabel = new JTextField();
+    JTextField tagsTextFieldLabel = new JTextField();
+    JTextField bodyTextFieldLabel = new JTextField();
 
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
@@ -50,31 +50,33 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         //### BODY PANEL SETUP
 
         bodyPanel.setLayout(new FlowLayout());
-        bodyPanel.add(titleFieldLabel);
-        bodyPanel.add(tagsFieldLabel);
-        bodyPanel.add(bodyFieldLabel);
+        bodyPanel.add(titleTextFieldLabel);
+        bodyPanel.add(tagsTextFieldLabel);
+        bodyPanel.add(bodyTextFieldLabel);
         bodyPanel.setBackground(Color.white);
 
-        titleFieldLabel.setPreferredSize(new Dimension(480, 48));
-        titleFieldLabel.setBackground(Color.white);
-        titleFieldLabel.setBorder(simpleBorder);
-        titleFieldLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        titleFieldLabel.setFont(bodyFont);
-        titleFieldLabel.setText("Title Goes Here");
+        titleTextFieldLabel.setPreferredSize(new Dimension(480, 48));
+        titleTextFieldLabel.setBackground(Color.white);
+        titleTextFieldLabel.setBorder(simpleBorder);
+        titleTextFieldLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleTextFieldLabel.setFont(bodyFont);
+        titleTextFieldLabel.setText("Title Goes Here");
 
-        tagsFieldLabel.setPreferredSize(new Dimension(480, 30));
-        tagsFieldLabel.setBackground(Color.white);
-        tagsFieldLabel.setBorder(simpleBorder);
-        tagsFieldLabel.setFont(bodyFont);
-        tagsFieldLabel.setText("Tags Go Here");
+        tagsTextFieldLabel.setPreferredSize(new Dimension(480, 30));
+        tagsTextFieldLabel.setBackground(Color.white);
+        tagsTextFieldLabel.setBorder(simpleBorder);
+        tagsTextFieldLabel.setFont(bodyFont);
+        tagsTextFieldLabel.setText("Tags Go Here");
 
-        bodyFieldLabel.setPreferredSize(new Dimension(480, 210));
-        bodyFieldLabel.setBackground(Color.white);
-        bodyFieldLabel.setBorder(simpleBorder);
-        bodyFieldLabel.setVerticalAlignment(SwingConstants.TOP);
-        bodyFieldLabel.setFont(bodyFont);
-        bodyFieldLabel.setText("Note Goes Here");
+        bodyTextFieldLabel.setPreferredSize(new Dimension(480, 210));
+        bodyTextFieldLabel.setBackground(Color.white);
+        bodyTextFieldLabel.setBorder(simpleBorder);
+        bodyTextFieldLabel.setFont(bodyFont);
+        bodyTextFieldLabel.setText("Note Goes Here");
 
+        //TODO: confirm note button
+        //TODO: scrap note button
+        //TODO: Auto clear ghost text
     }
 
     @Override
