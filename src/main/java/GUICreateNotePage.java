@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -11,6 +12,14 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     JPanel bodyPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
+    JLabel titleFieldLabel = new JLabel();
+    JLabel tagsFieldLabel = new JLabel();
+    JLabel bodyFieldLabel = new JLabel();
+
+    Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
+    Border checkBorder = BorderFactory.createDashedBorder(Color.black);
+
+    Font bodyFont = new Font("Default",Font.PLAIN,18);
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
@@ -37,6 +46,35 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         originoteIconjLabel.setVerticalAlignment(JLabel.CENTER);
 
         menuBarPanel.add(originoteIconjLabel);
+
+        //### BODY PANEL SETUP
+
+        bodyPanel.setLayout(new FlowLayout());
+        bodyPanel.add(titleFieldLabel);
+        bodyPanel.add(tagsFieldLabel);
+        bodyPanel.add(bodyFieldLabel);
+        bodyPanel.setBackground(Color.white);
+
+        titleFieldLabel.setPreferredSize(new Dimension(480, 48));
+        titleFieldLabel.setBackground(Color.white);
+        titleFieldLabel.setBorder(simpleBorder);
+        titleFieldLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        titleFieldLabel.setFont(bodyFont);
+        titleFieldLabel.setText("Title Goes Here");
+
+        tagsFieldLabel.setPreferredSize(new Dimension(480, 30));
+        tagsFieldLabel.setBackground(Color.white);
+        tagsFieldLabel.setBorder(simpleBorder);
+        tagsFieldLabel.setFont(bodyFont);
+        tagsFieldLabel.setText("Tags Go Here");
+
+        bodyFieldLabel.setPreferredSize(new Dimension(480, 210));
+        bodyFieldLabel.setBackground(Color.white);
+        bodyFieldLabel.setBorder(simpleBorder);
+        bodyFieldLabel.setVerticalAlignment(SwingConstants.TOP);
+        bodyFieldLabel.setFont(bodyFont);
+        bodyFieldLabel.setText("Note Goes Here");
+
     }
 
     @Override
