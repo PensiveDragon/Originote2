@@ -61,6 +61,10 @@ public class GUIFunctionHandler {
         new GUIViewNotePage(note_id);
     }
 
+    public void openNewCreateNotePage() {
+        new GUICreateNotePage();
+    }
+
     public String assembleTagsString(int note_id) {
         String result = "";
 

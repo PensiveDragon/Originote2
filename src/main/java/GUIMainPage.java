@@ -14,11 +14,12 @@ public class GUIMainPage extends JFrame implements ActionListener {
 
     JButton newNoteButton;
     JButton listNotesButton;
+    JButton recentNotes[] = new JButton[5];
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel displayListLabel = new JLabel();
 
-    JButton recentNotes[] = new JButton[5];
+    GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
 
     ImageIcon image = new ImageIcon("Originote.png");
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
@@ -53,7 +54,10 @@ public class GUIMainPage extends JFrame implements ActionListener {
         newNoteButton = new JButton();
         newNoteButton.setText("New Note");
         newNoteButton.setBackground(Color.white);
-        newNoteButton.addActionListener(e -> System.out.println("New Note Button Clicked!"));
+        newNoteButton.addActionListener(e -> {
+            System.out.println("New Note Button Clicked!");
+            guiFunctionHandler.openNewCreateNotePage();
+        });
         newNoteButton.setFocusable(false);
 
         listNotesButton = new JButton();
