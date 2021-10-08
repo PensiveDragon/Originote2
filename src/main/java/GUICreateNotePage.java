@@ -6,12 +6,18 @@ import java.awt.event.ActionListener;
 
 public class GUICreateNotePage extends JFrame implements ActionListener {
 
+    GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+
     ImageIcon image = new ImageIcon("Originote.png");
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
+    JLabel blankSpacer = new JLabel();
+
+    JButton saveNoteButton = new JButton();
+
     JTextField titleTextFieldLabel = new JTextField();
     JTextField tagsTextFieldLabel = new JTextField();
     JTextField bodyTextFieldLabel = new JTextField();
@@ -45,7 +51,21 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         originoteIconjLabel.setHorizontalAlignment(JLabel.CENTER);
         originoteIconjLabel.setVerticalAlignment(JLabel.CENTER);
 
+        blankSpacer.setPreferredSize(new Dimension(130, 50));
+
+        saveNoteButton.setText("Save");
+        saveNoteButton.setPreferredSize(new Dimension(130,50));
+        saveNoteButton.setHorizontalAlignment(SwingConstants.CENTER);
+        saveNoteButton.setVerticalAlignment(SwingConstants.CENTER);
+        saveNoteButton.setBackground(Color.white);
+        saveNoteButton.addActionListener(e -> {
+            System.out.println("Save Note Button Clicked!");
+            //guiFunctionHandler.saveNoteInfo();
+        });
+
         menuBarPanel.add(originoteIconjLabel);
+        menuBarPanel.add(blankSpacer);
+        menuBarPanel.add(saveNoteButton);
 
         //### BODY PANEL SETUP
 
