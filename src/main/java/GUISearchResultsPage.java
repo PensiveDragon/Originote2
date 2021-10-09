@@ -23,7 +23,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
-    public GUISearchResultsPage() {
+    public GUISearchResultsPage(String search_parameters) {
         this.setTitle("Originote - Search Results");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);

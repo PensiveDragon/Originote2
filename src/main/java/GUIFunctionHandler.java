@@ -79,4 +79,8 @@ public class GUIFunctionHandler {
 
         return result;
     }
+
+    public void openNewSearchResultsPage(String search_parameters) {
+        new GUISearchResultsPage(search_parameters);
+    }
 }

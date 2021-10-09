@@ -85,7 +85,11 @@ public class GUIMainPage extends JFrame implements ActionListener {
         JButton searchButton = new JButton();
         searchButton.setText("Search");
         searchButton.setBackground(Color.white);
-        searchButton.addActionListener(e -> System.out.println("Search Button Clicked!"));
+        searchButton.addActionListener(e -> {
+            System.out.println("Search Button Clicked!");
+            String search_parameters = "";
+            guiFunctionHandler.openNewSearchResultsPage(search_parameters);
+        });
         searchButton.setFocusable(false);
 
         jSearchTextField.setToolTipText("Search Bar");
