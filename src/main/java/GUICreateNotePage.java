@@ -3,6 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 public class GUICreateNotePage extends JFrame implements ActionListener {
 
@@ -53,14 +54,17 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
         blankSpacer.setPreferredSize(new Dimension(130, 50));
 
-        saveNoteButton.setText("Save");
+        saveNoteButton.setText("Save & Exit");
         saveNoteButton.setPreferredSize(new Dimension(130,50));
         saveNoteButton.setHorizontalAlignment(SwingConstants.CENTER);
         saveNoteButton.setVerticalAlignment(SwingConstants.CENTER);
         saveNoteButton.setBackground(Color.white);
         saveNoteButton.addActionListener(e -> {
             System.out.println("Save Note Button Clicked!");
+            //TODO: Add function to save note - Function / Database handler action
+            //TODO: Add function to update most recent notes list
             //guiFunctionHandler.saveNoteInfo();
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
         menuBarPanel.add(originoteIconjLabel);
