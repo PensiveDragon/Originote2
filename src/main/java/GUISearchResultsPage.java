@@ -52,8 +52,33 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         bodyPanel.setLayout(new FlowLayout());
         bodyPanel.setBackground(Color.white);
 
-    }
+        JButton test = new JButton();
+        bodyPanel.add(test);
 
+    }
+/*
+    public void populateSearchResultsList() {
+
+        int n = 0;
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+
+        for (int i = 0; i <5; i++) {
+            recentNotes[i] = new JButton();
+            displayListPanel.add(recentNotes[i]);
+            recentNotes[i].setPreferredSize(new Dimension(500, 40));
+            recentNotes[i].setBackground(Color.white);
+            recentNotes[i].setBorder(testBoundsBorder);
+            recentNotes[i].setHorizontalAlignment(SwingConstants.LEFT);
+            recentNotes[i].setFocusable(false);
+            recentNotes[i].addActionListener(this);
+
+            if (recentIDs[n] > 0) {
+                recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
+            }
+        }
+    }
+*/
     @Override
     public void actionPerformed(ActionEvent e) {
 
