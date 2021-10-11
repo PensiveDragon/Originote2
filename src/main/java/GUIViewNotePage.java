@@ -93,3 +93,8 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
     }
 }
+
+//    ## View Note Page To Do: ##
+//TODO: Add edit note button. Passes note_id reference to CreateNotePage.
+//TODO: Add delete note button (and additional confirmation?). Calls relevant deletion functions from Database Handler.
+//TODO: Look at changing the window size and arrangement to be more 'note card' size.

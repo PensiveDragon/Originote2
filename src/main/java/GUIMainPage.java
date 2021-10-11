@@ -178,18 +178,11 @@ public class GUIMainPage extends JFrame implements ActionListener {
     }
 }
 
-/* Improve UI:
-- Create Recent Notes module
- -> Heading Bar
- -> 5x rows of clickable entries with text space set 50/50 between title and tags list
-- Create Search bar module
- -> TextField taking up most of the line. Fill text stating 'search titles or #searchtags'
- -> 'Search' button at the end
-- Create Top bar module
- -> Originote Icon
- -> New Note Button
- -> List Notes Button
- */
+//    ## Main Page To Do: ##
+//TODO: Implement ghost-text for text fields.
+//TODO: Fully implement List Notes button functionality.
+//TODO: Fully implement passing text field entry to the Search button function.
+
 
 /* ## look into tabbed panel / tabbed window
 * Fill in recent notes list

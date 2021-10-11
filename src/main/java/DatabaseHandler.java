@@ -252,9 +252,5 @@ public class DatabaseHandler {
     -> Select * from note_content where title contains x
 
     ## Join can be used to find data from one table using information from another connected table. ##
-
-    TODO: Review new program objectives
-    TODO: Review Simon's emails and add other techs to the list
-    TODO: Look about fuzzy searching for tags / words - just the LIKE keyword?
     */
 }

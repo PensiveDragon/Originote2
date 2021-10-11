@@ -84,3 +84,9 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
     }
 }
+
+//    ## Search Results Page To Do: ##
+//TODO: Have window name include the search phrase.
+//TODO: Title line saying: "[x] search results for: [search phrase]"
+//TODO: JPanel containing the results. Panel either needs to be scrollable or have result page tabs for large results.
+//TODO: Function creating JButtons with each answer in. Displayed and functions in the same way as 'recent notes'.
