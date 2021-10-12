@@ -13,11 +13,13 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
+    JPanel menuBarSubPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel blankSpacer = new JLabel();
 
     JButton saveNoteButton = new JButton();
+    JButton discardNoteButton = new JButton();
 
     JTextField titleTextFieldLabel = new JTextField();
     JTextField tagsTextFieldLabel = new JTextField();
@@ -47,6 +49,9 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         menuBarPanel.setBackground(Color.white);
         menuBarPanel.setLayout(new GridLayout(1,3, 5, 5));
 
+        menuBarSubPanel.setBackground(Color.WHITE);
+        menuBarSubPanel.setLayout(new GridLayout(1,2,5,5));
+
         originoteIconjLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
         originoteIconjLabel.setPreferredSize(new Dimension(130,50));
         originoteIconjLabel.setHorizontalAlignment(JLabel.CENTER);
@@ -55,9 +60,9 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         blankSpacer.setPreferredSize(new Dimension(130, 50));
 
         saveNoteButton.setText("Save & Exit");
-        saveNoteButton.setPreferredSize(new Dimension(130,50));
-        saveNoteButton.setHorizontalAlignment(SwingConstants.CENTER);
-        saveNoteButton.setVerticalAlignment(SwingConstants.CENTER);
+        //saveNoteButton.setPreferredSize(new Dimension(130,50));
+        //saveNoteButton.setHorizontalAlignment(SwingConstants.CENTER);
+        //saveNoteButton.setVerticalAlignment(SwingConstants.CENTER);
         saveNoteButton.setBackground(Color.white);
         saveNoteButton.addActionListener(e -> {
             System.out.println("Save Note Button Clicked!");
@@ -67,9 +72,19 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
+        discardNoteButton.setText("Discard");
+        discardNoteButton.setBackground(Color.WHITE);
+        discardNoteButton.addActionListener(e -> {
+            System.out.println("Discard Button Clicked");
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+        });
+
+
         menuBarPanel.add(originoteIconjLabel);
-        menuBarPanel.add(blankSpacer);
-        menuBarPanel.add(saveNoteButton);
+        menuBarPanel.add(menuBarSubPanel);
+        //menuBarPanel.add(blankSpacer);
+        menuBarSubPanel.add(saveNoteButton);
+        menuBarSubPanel.add(discardNoteButton);
 
         //### BODY PANEL SETUP
 
@@ -112,7 +127,6 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 //    ## Create Note Page To Do
 //TODO: Implement ghost-text for text fields.
 //TODO: Implement either a character limit on text fields or allow for scrollable views to fit content in.
-//TODO: Add Discard Note button to cancel note and close window.
 //TODO: Implement remaining Save & Exit button functionality.
 //TODO:   -Text fields snapshot their entered data and sends it to a database function to create a new note.
 //TODO:   -Require information to be put in all 3 fields to be able to save.
