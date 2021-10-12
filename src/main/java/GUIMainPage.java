@@ -93,8 +93,9 @@ public class GUIMainPage extends JFrame implements ActionListener {
         searchButton.setFocusable(false);
 
         jSearchTextField.setToolTipText("Search Bar");
-        jSearchTextField.setText("Enter your search...");
+        jSearchTextField.setText("Search...");
         jSearchTextField.setPreferredSize(new Dimension(400,30));
+        jSearchTextField.setForeground(Color.GRAY);
 
         searchBarPanel.add(searchButton);
         searchBarPanel.add(jSearchTextField);

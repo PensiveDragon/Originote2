@@ -23,7 +23,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
     JTextField titleTextFieldLabel = new JTextField();
     JTextField tagsTextFieldLabel = new JTextField();
-    JTextField bodyTextFieldLabel = new JTextField();
+    JTextArea bodyTextFieldLabel = new JTextArea();
 
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
@@ -99,19 +99,23 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         titleTextFieldLabel.setBorder(simpleBorder);
         titleTextFieldLabel.setHorizontalAlignment(SwingConstants.CENTER);
         titleTextFieldLabel.setFont(bodyFont);
-        titleTextFieldLabel.setText("Title Goes Here");
+        titleTextFieldLabel.setText("Title...");
+        titleTextFieldLabel.setForeground(Color.GRAY);
 
         tagsTextFieldLabel.setPreferredSize(new Dimension(480, 30));
         tagsTextFieldLabel.setBackground(Color.white);
         tagsTextFieldLabel.setBorder(simpleBorder);
         tagsTextFieldLabel.setFont(bodyFont);
-        tagsTextFieldLabel.setText("Tags Go Here");
+        tagsTextFieldLabel.setText("Tags...");
+        tagsTextFieldLabel.setForeground(Color.GRAY);
 
         bodyTextFieldLabel.setPreferredSize(new Dimension(480, 210));
         bodyTextFieldLabel.setBackground(Color.white);
         bodyTextFieldLabel.setBorder(simpleBorder);
         bodyTextFieldLabel.setFont(bodyFont);
-        bodyTextFieldLabel.setText("Note Goes Here");
+        bodyTextFieldLabel.setText("Note...");
+        bodyTextFieldLabel.setForeground(Color.GRAY);
+
 
         //TODO: confirm note button
         //TODO: scrap note button
