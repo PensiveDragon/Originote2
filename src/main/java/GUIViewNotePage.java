@@ -25,6 +25,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
     JLabel spacerLabel = new JLabel();
 
     JButton editNoteButton = new JButton();
+    JButton deleteNoteButton = new JButton();
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
@@ -48,7 +49,8 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         menuBarPanel.setBackground(Color.white);
         menuBarPanel.setLayout(new GridLayout(1,3, 5, 5));
 
-        menuBarSubPanel.setLayout(new GridLayout(1,2));
+        menuBarSubPanel.setLayout(new GridLayout(1,2, 5, 5));
+        menuBarSubPanel.setBackground(Color.WHITE);
 
         originoteIconjLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
         originoteIconjLabel.setPreferredSize(new Dimension(130,50));
@@ -62,10 +64,19 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
             System.out.println("Edit Button Clicked!");
         });
 
+        deleteNoteButton.setText("Delete Note");
+        deleteNoteButton.setBackground(Color.WHITE);
+        deleteNoteButton.setFocusable(false);
+        deleteNoteButton.addActionListener(e -> {
+            System.out.println("Delete Button Clicked");
+        });
+
         menuBarPanel.add(originoteIconjLabel);
-        menuBarPanel.add(spacerLabel);
+        //menuBarPanel.add(spacerLabel);
         menuBarPanel.add(menuBarSubPanel);
+
         menuBarSubPanel.add(editNoteButton);
+        menuBarSubPanel.add(deleteNoteButton);
 
         bodyPanel.setLayout(new FlowLayout());
         bodyPanel.add(titleLabel);
