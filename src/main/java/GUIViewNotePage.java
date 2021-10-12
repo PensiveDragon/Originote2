@@ -16,11 +16,15 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
+    JPanel menuBarSubPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel titleLabel = new JLabel();
     JLabel bodyLabel = new JLabel();
     JLabel tagsLabel = new JLabel();
+    JLabel spacerLabel = new JLabel();
+
+    JButton editNoteButton = new JButton();
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
@@ -44,12 +48,24 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         menuBarPanel.setBackground(Color.white);
         menuBarPanel.setLayout(new GridLayout(1,3, 5, 5));
 
+        menuBarSubPanel.setLayout(new GridLayout(1,2));
+
         originoteIconjLabel.setIcon(new ImageIcon(originoteImage.getImage().getScaledInstance(130,50, Image.SCALE_DEFAULT)));
         originoteIconjLabel.setPreferredSize(new Dimension(130,50));
         originoteIconjLabel.setHorizontalAlignment(JLabel.CENTER);
         originoteIconjLabel.setVerticalAlignment(JLabel.CENTER);
 
+        editNoteButton.setText("Edit Note");
+        editNoteButton.setBackground(Color.WHITE);
+        editNoteButton.setFocusable(false);
+        editNoteButton.addActionListener(e -> {
+            System.out.println("Edit Button Clicked!");
+        });
+
         menuBarPanel.add(originoteIconjLabel);
+        menuBarPanel.add(spacerLabel);
+        menuBarPanel.add(menuBarSubPanel);
+        menuBarSubPanel.add(editNoteButton);
 
         bodyPanel.setLayout(new FlowLayout());
         bodyPanel.add(titleLabel);
