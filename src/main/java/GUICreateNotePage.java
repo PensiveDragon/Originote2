@@ -102,6 +102,8 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         titleTextFieldLabel.setText("Title...");
         titleTextFieldLabel.setForeground(Color.GRAY);
 
+
+
         tagsTextFieldLabel.setPreferredSize(new Dimension(480, 30));
         tagsTextFieldLabel.setBackground(Color.white);
         tagsTextFieldLabel.setBorder(simpleBorder);
