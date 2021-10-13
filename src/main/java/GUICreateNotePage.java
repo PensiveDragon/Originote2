@@ -1,9 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class GUICreateNotePage extends JFrame implements ActionListener {
 
@@ -31,6 +29,10 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     Font bodyFont = new Font("Default",Font.PLAIN,18);
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
+
+    boolean titleTextFieldClickedOn = false;
+    boolean tagsTextFieldClickedOn = false;
+    boolean bodyTextAreaClickedOn = false;
 
     public GUICreateNotePage() {
         this.setTitle("Originote - Create New Note");
@@ -101,8 +103,21 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         titleTextFieldLabel.setFont(bodyFont);
         titleTextFieldLabel.setText("Title...");
         titleTextFieldLabel.setForeground(Color.GRAY);
+        titleTextFieldLabel.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!titleTextFieldClickedOn) {
+                    titleTextFieldLabel.setText("");
+                    titleTextFieldLabel.setForeground(Color.BLACK);
+                    titleTextFieldClickedOn = true;
+                }
+            }
 
+            @Override
+            public void focusLost(FocusEvent e) {
 
+            }
+        });
 
         tagsTextFieldLabel.setPreferredSize(new Dimension(480, 30));
         tagsTextFieldLabel.setBackground(Color.white);
@@ -110,6 +125,21 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         tagsTextFieldLabel.setFont(bodyFont);
         tagsTextFieldLabel.setText("Tags...");
         tagsTextFieldLabel.setForeground(Color.GRAY);
+        tagsTextFieldLabel.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!tagsTextFieldClickedOn) {
+                    tagsTextFieldLabel.setText("");
+                    tagsTextFieldLabel.setForeground(Color.BLACK);
+                    tagsTextFieldClickedOn = true;
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+
+            }
+        });
 
         bodyTextFieldLabel.setPreferredSize(new Dimension(480, 210));
         bodyTextFieldLabel.setBackground(Color.white);
@@ -117,6 +147,22 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         bodyTextFieldLabel.setFont(bodyFont);
         bodyTextFieldLabel.setText("Note...");
         bodyTextFieldLabel.setForeground(Color.GRAY);
+
+        bodyTextFieldLabel.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!bodyTextAreaClickedOn) {
+                    bodyTextFieldLabel.setText("");
+                    bodyTextFieldLabel.setForeground(Color.BLACK);
+                    bodyTextAreaClickedOn = true;
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+
+            }
+        });
 
 
         //TODO: confirm note button

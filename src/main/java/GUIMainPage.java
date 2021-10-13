@@ -29,6 +29,8 @@ public class GUIMainPage extends JFrame implements ActionListener {
     Border testBoundsBorder = BorderFactory.createLineBorder(Color.black, 1);
     Font testFont = new Font("Default",Font.PLAIN,32);
 
+    boolean jSearchTextFieldClicked = false;
+
     public GUIMainPage() {
 
         this.setTitle("Originote");
@@ -39,8 +41,6 @@ public class GUIMainPage extends JFrame implements ActionListener {
         this.setVisible(true);
         this.setIconImage(image.getImage());
         //this.getContentPane().setBackground(Color.gray);
-
-
 
         //### MENU BAR PANEL SETUP
 
@@ -101,8 +101,11 @@ public class GUIMainPage extends JFrame implements ActionListener {
         jSearchTextField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                jSearchTextField.setText("");
-                jSearchTextField.setForeground(Color.BLACK);
+                if (!jSearchTextFieldClicked) {
+                    jSearchTextField.setText("");
+                    jSearchTextField.setForeground(Color.BLACK);
+                    jSearchTextFieldClicked = true;
+                }
             }
 
             @Override
