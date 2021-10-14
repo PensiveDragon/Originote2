@@ -177,7 +177,6 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 }
 
 //    ## Create Note Page To Do
-//TODO: Implement ghost-text for text fields.
 //TODO: Implement either a character limit on text fields or allow for scrollable views to fit content in.
 //TODO: Implement remaining Save & Exit button functionality.
 //TODO:   -Text fields snapshot their entered data and sends it to a database function to create a new note.

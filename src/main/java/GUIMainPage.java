@@ -89,7 +89,7 @@ public class GUIMainPage extends JFrame implements ActionListener {
         searchButton.setBackground(Color.white);
         searchButton.addActionListener(e -> {
             System.out.println("Search Button Clicked!");
-            String search_parameters = "";
+            String search_parameters = jSearchTextField.getText();
             guiFunctionHandler.openNewSearchResultsPage(search_parameters);
         });
         searchButton.setFocusable(false);
@@ -197,7 +197,6 @@ public class GUIMainPage extends JFrame implements ActionListener {
 }
 
 //    ## Main Page To Do: ##
-//TODO: Implement ghost-text for text fields.
 //TODO: Fully implement List Notes button functionality.
 //TODO: Fully implement passing text field entry to the Search button function.
 
