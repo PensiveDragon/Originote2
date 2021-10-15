@@ -13,8 +13,10 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
+    JPanel searchResultsPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
+    JLabel headingLabel = new JLabel();
 
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
@@ -49,11 +51,22 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
     //### BODY PANEL SETUP
 
-        bodyPanel.setLayout(new FlowLayout());
+        bodyPanel.setLayout(new BorderLayout(10,10));
         bodyPanel.setBackground(Color.white);
+        bodyPanel.add(searchResultsPanel,BorderLayout.CENTER);
+
+        headingLabel.setText("x Results for: " + search_parameters);
+
+        searchResultsPanel.setPreferredSize(new Dimension(80,80));
+        searchResultsPanel.setBackground(Color.white);
+        searchResultsPanel.setLayout(new FlowLayout());
+
+        searchResultsPanel.add(headingLabel,BorderLayout.NORTH);
 
         JButton test = new JButton();
-        bodyPanel.add(test);
+        test.setText("Testing");
+        searchResultsPanel.add(test);
+
 
     }
 /*
@@ -86,7 +99,6 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 }
 
 //    ## Search Results Page To Do: ##
-//TODO: Have window name include the search phrase.
 //TODO: Title line saying: "[x] search results for: [search phrase]"
 //TODO: JPanel containing the results. Panel either needs to be scrollable or have result page tabs for large results.
 //TODO: Function creating JButtons with each answer in. Displayed and functions in the same way as 'recent notes'.
