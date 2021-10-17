@@ -115,7 +115,11 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-
+                if (titleTextFieldLabel.equals("")) {
+                    titleTextFieldLabel.setText("Title...");
+                    titleTextFieldLabel.setForeground(Color.GRAY);
+                    titleTextFieldClickedOn = false;
+                }
             }
         });
 
@@ -137,7 +141,11 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-
+                if (tagsTextFieldLabel.equals("")) {
+                    tagsTextFieldLabel.setText("Tags...");
+                    tagsTextFieldLabel.setForeground(Color.GRAY);
+                    tagsTextFieldClickedOn = false;
+                }
             }
         });
 
@@ -160,14 +168,16 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-
+                System.out.println("Body Text Focus Lost");
+                System.out.println(bodyTextFieldLabel.equals(""));
+                if (bodyTextFieldLabel.equals("")) {
+                    bodyTextFieldLabel.setText("Note...");
+                    bodyTextFieldLabel.setForeground(Color.GRAY);
+                    bodyTextAreaClickedOn = false;
+                }
             }
         });
 
-
-        //TODO: confirm note button
-        //TODO: scrap note button
-        //TODO: Auto clear ghost text
     }
 
     @Override

@@ -112,7 +112,11 @@ public class GUIMainPage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-
+                if (jSearchTextField.equals("")) {
+                    jSearchTextField.setText("Search...");
+                    jSearchTextField.setForeground(Color.GRAY);
+                    jSearchTextFieldClicked = false;
+                }
             }
         });
 
