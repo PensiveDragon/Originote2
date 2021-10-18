@@ -115,7 +115,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (titleTextFieldLabel.equals("")) {
+                if (titleTextFieldLabel.getText().isEmpty()) {
                     titleTextFieldLabel.setText("Title...");
                     titleTextFieldLabel.setForeground(Color.GRAY);
                     titleTextFieldClickedOn = false;
@@ -141,7 +141,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-                if (tagsTextFieldLabel.equals("")) {
+                if (tagsTextFieldLabel.getText().isEmpty()) {
                     tagsTextFieldLabel.setText("Tags...");
                     tagsTextFieldLabel.setForeground(Color.GRAY);
                     tagsTextFieldClickedOn = false;
@@ -168,9 +168,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-                System.out.println("Body Text Focus Lost");
-                System.out.println(bodyTextFieldLabel.equals(""));
-                if (bodyTextFieldLabel.equals("")) {
+                if (bodyTextFieldLabel.getText().isEmpty()) {
                     bodyTextFieldLabel.setText("Note...");
                     bodyTextFieldLabel.setForeground(Color.GRAY);
                     bodyTextAreaClickedOn = false;
