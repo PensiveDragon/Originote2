@@ -7,6 +7,12 @@ public class Main {
 
         System.out.println("Meow");
 
+        //tests();
+
+        GUIMainPage guiMainPage = new GUIMainPage();
+    }
+
+    public static void tests() {
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
         System.out.println(databaseHandler.findNoteDataByID(1));
@@ -54,8 +60,6 @@ public class Main {
 
         databaseHandler.updateNoteDataAtSpecificID(updateTestData);
 
-
-        GUIMainPage guiMainPage = new GUIMainPage();
     }
 }
 

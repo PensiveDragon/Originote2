@@ -1,3 +1,4 @@
+import javax.swing.text.html.HTML;
 import java.util.List;
 import java.util.Locale;
 
@@ -82,5 +83,10 @@ public class GUIFunctionHandler {
 
     public void openNewSearchResultsPage(String search_parameters) {
         new GUISearchResultsPage(search_parameters);
+    }
+
+    public void saveNoteInfo(NoteContent noteContent, TagContent tagContent) {
+        System.out.println(noteContent.toString());
+        System.out.println(tagContent.toString());
     }
 }

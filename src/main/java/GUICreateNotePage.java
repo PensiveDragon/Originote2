@@ -70,7 +70,12 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             System.out.println("Save Note Button Clicked!");
             //TODO: Add function to save note - Function / Database handler action
             //TODO: Add function to update most recent notes list
-            //guiFunctionHandler.saveNoteInfo();
+            NoteContent noteContent = new NoteContent();
+            noteContent.setTitle(titleTextFieldLabel.getText());
+            noteContent.setBody(bodyTextFieldLabel.getText());
+            TagContent tagContent = new TagContent();
+
+            guiFunctionHandler.saveNoteInfo(noteContent, tagContent);
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
