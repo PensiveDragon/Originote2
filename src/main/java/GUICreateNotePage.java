@@ -74,6 +74,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             noteContent.setTitle(titleTextFieldLabel.getText());
             noteContent.setBody(bodyTextFieldLabel.getText());
             TagContent tagContent = new TagContent();
+            tagContent.setTag(tagsTextFieldLabel.getText());
 
             guiFunctionHandler.saveNoteInfo(noteContent, tagContent);
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
