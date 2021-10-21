@@ -73,10 +73,11 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             NoteContent noteContent = new NoteContent();
             noteContent.setTitle(titleTextFieldLabel.getText());
             noteContent.setBody(bodyTextFieldLabel.getText());
-            TagContent tagContent = new TagContent();
-            tagContent.setTag(tagsTextFieldLabel.getText());
+            //TagContent tagContent = new TagContent();
+            //tagContent.setTag(tagsTextFieldLabel.getText());
+            String[] tagsList = createTagsList(tagsTextFieldLabel.getText());
 
-            guiFunctionHandler.saveNoteInfo(noteContent, tagContent);
+            guiFunctionHandler.saveNoteInfo(noteContent, tagsList);
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
@@ -187,6 +188,20 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+
+    public String[] createTagsList(String raw_string) {
+
+        String[] tags = raw_string.split("#");
+        for (int i = 0; i < tags.length; i++) {
+            tags[i].trim();
+            System.out.println(tags[i]);
+            if (!tags[i].isEmpty()) {
+
+            }
+        }
+        System.out.println(tags.length);
+        return tags;
     }
 }
 
