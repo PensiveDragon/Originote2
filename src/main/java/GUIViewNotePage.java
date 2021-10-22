@@ -3,6 +3,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.util.List;
 
 public class GUIViewNotePage extends JFrame implements ActionListener {
@@ -69,6 +70,9 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         deleteNoteButton.setFocusable(false);
         deleteNoteButton.addActionListener(e -> {
             System.out.println("Delete Button Clicked");
+            System.out.println("Deleting note: " + note_id);
+            new GUIFunctionHandler().deleteNote(note_id);
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
         menuBarPanel.add(originoteIconjLabel);

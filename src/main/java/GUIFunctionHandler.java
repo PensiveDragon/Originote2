@@ -91,4 +91,10 @@ public class GUIFunctionHandler {
             System.out.println("#" + tag);
         }
     }
+
+    public void deleteNote(int id) {
+        databaseHandler.deleteAllTagsAtID(id);
+        databaseHandler.deleteNoteDataAtID(id);
+        System.out.println("Deleted note @ ID: " + id);
+    }
 }
