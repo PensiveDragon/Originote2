@@ -168,10 +168,18 @@ public class GUIMainPage extends JFrame implements ActionListener {
             recentNotes[i].setBorder(testBoundsBorder);
             recentNotes[i].setHorizontalAlignment(SwingConstants.LEFT);
             recentNotes[i].setFocusable(false);
-            recentNotes[i].addActionListener(this);
+
 
             if (recentIDs[n] > 0) {
+                System.out.println("info i=" + i + " n=" + n + "recentIDs[n]=" + recentIDs[n]);
+                recentNotes[i].addActionListener(this);
                 recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
+            } else {
+                recentNotes[i].setText(" Create a new Note!");
+                recentNotes[i].addActionListener(e -> {
+                    System.out.println("Recent Notes Create New Note Button Clicked!");
+                    guiFunctionHandler.openNewCreateNotePage();
+                });
             }
         }
     }
