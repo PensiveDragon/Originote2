@@ -21,14 +21,17 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel titleLabel = new JLabel();
-    JLabel bodyLabel = new JLabel();
+    JTextArea bodyLabel = new JTextArea();
     JLabel tagsLabel = new JLabel();
     JLabel spacerLabel = new JLabel();
+
+    JScrollPane scrollPane = new JScrollPane(bodyLabel, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
     JButton editNoteButton = new JButton();
     JButton deleteNoteButton = new JButton();
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
+
 
 
     public GUIViewNotePage(int note_id) {
@@ -102,8 +105,10 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         bodyLabel.setPreferredSize(new Dimension(480, 210));
         bodyLabel.setBackground(Color.white);
         bodyLabel.setBorder(checkBorder);
-        bodyLabel.setVerticalAlignment(SwingConstants.TOP);
+        //bodyLabel.setVerticalAlignment(SwingConstants.TOP);
         bodyLabel.setFont(bodyFont);
+        bodyLabel.setLineWrap(true);
+        bodyLabel.setWrapStyleWord(true);
 
     }
 
@@ -121,6 +126,35 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+    }
+
+    public class ScrollableLabel extends JLabel implements Scrollable {
+
+        @Override
+        public Dimension getPreferredScrollableViewportSize() {
+            return getPreferredSize();
+        }
+
+        @Override
+        public int getScrollableUnitIncrement(Rectangle visibleRect, int orientation, int direction) {
+            return 0;
+        }
+
+        @Override
+        public int getScrollableBlockIncrement(Rectangle visibleRect, int orientation, int direction) {
+            return 0;
+        }
+
+        @Override
+        public boolean getScrollableTracksViewportWidth() {
+            return true;
+        }
+
+        @Override
+        public boolean getScrollableTracksViewportHeight() {
+            return false;
+        }
 
     }
 }

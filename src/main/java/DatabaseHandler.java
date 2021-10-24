@@ -77,7 +77,7 @@ public class DatabaseHandler {
 
         for (int i = 0; i < TagContents.size(); i++) {
             results[i] = TagContents.get(i).getTag();
-            System.out.println("Results entry " + i + " added.");
+            //System.out.println("Tag " + i + " added.");
         }
 
         return results;

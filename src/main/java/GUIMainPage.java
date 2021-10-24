@@ -171,7 +171,7 @@ public class GUIMainPage extends JFrame implements ActionListener {
 
 
             if (recentIDs[n] > 0) {
-                System.out.println("info i=" + i + " n=" + n + "recentIDs[n]=" + recentIDs[n]);
+                //System.out.println("info i=" + i + " n=" + n + "recentIDs[n]=" + recentIDs[n]);
                 recentNotes[i].addActionListener(this);
                 recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
             } else {

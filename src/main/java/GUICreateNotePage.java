@@ -210,6 +210,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 //TODO: Implement remaining Save & Exit button functionality.
 //TODO:   -Text fields snapshot their entered data and sends it to a database function to create a new note.
 //TODO:   -Require information to be put in all 3 fields to be able to save.
+//TODO:   -Saving note refreshes recent notes list.
 //TODO: Implement Edit Note functionality through the same page.
 //TODO:   -Check for note information being passed in when the window is opened.
 //TODO:   -Populate fields with any existing note information found
