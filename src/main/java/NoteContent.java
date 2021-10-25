@@ -1,4 +1,6 @@
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class NoteContent {
 
@@ -14,12 +16,12 @@ public class NoteContent {
         this.body = body;
     }
 
-    public void setDateTime(LocalDateTime dateTime) { this.dateTime = dateTime; }
+    public void setDateTime(String dateTime) { this.dateTime = dateTime; }
 
     private int id;
     private String title;
     private String body;
-    private LocalDateTime dateTime;
+    private String dateTime;
 
     public int getId() {
         return id;
@@ -30,7 +32,9 @@ public class NoteContent {
     public String getBody() {
         return body;
     }
-    public LocalDateTime getDateTime() { return dateTime; }
+    public String getDateTime() {
+        return dateTime;
+    }
 
     @Override
     public String toString() {

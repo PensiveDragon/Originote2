@@ -60,10 +60,6 @@ public class DatabaseHandler {
         return null;
     }
 
-    // findNoteDatabyTag ## USES JOIN Keyword
-    // select * from note_content, tags_to_notes where notes.id = tags.node_id
-    // select * from note_content join tags_to_notes on notes.id = tags.node_id
-
     public String[] findTagsByID(int id) {
 
 
@@ -133,9 +129,10 @@ public class DatabaseHandler {
         try {
 
             int result = jdbi.withHandle(handle -> {
-                return handle.createUpdate("insert into note_content(title, body) values (:title, :body)")
+                return handle.createUpdate("insert into note_content(title, body, date_time) values (:title, :body, :date_time)")
                         .bind("title", noteContent.getTitle())
                         .bind("body", noteContent.getBody())
+                        .bind("date_time", noteContent.getDateTime())
                         .execute();
             });
 
@@ -171,10 +168,11 @@ public class DatabaseHandler {
         try {
 
             int result = jdbi.withHandle(handle -> {
-                return handle.createUpdate("UPDATE note_content SET title=:title, body=:body where id=:id")
+                return handle.createUpdate("UPDATE note_content SET title=:title, body=:body, date_time=:date_time where id=:id")
                         .bind("id", noteContent.getId())
                         .bind("title", noteContent.getTitle())
                         .bind("body", noteContent.getBody())
+                        .bind("date_time", noteContent.getDateTime())
                         .execute();
             });
 

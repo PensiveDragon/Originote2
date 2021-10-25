@@ -90,6 +90,8 @@ public class GUIFunctionHandler {
         for (String tag: tagsList) {
             System.out.println("#" + tag);
         }
+
+
     }
 
     public void deleteNote(int id) {

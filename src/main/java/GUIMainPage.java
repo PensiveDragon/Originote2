@@ -184,6 +184,10 @@ public class GUIMainPage extends JFrame implements ActionListener {
         }
     }
 
+    public void updateUI() {
+        this.validate();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();

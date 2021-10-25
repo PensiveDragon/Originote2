@@ -1,5 +1,3 @@
-import java.time.LocalDateTime;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -7,12 +5,15 @@ public class Main {
 
         System.out.println("Meow");
 
-        //tests();
+        //findTests();
+        //deleteTest();
+        //createTest();
+        //updateTest();
 
         GUIMainPage guiMainPage = new GUIMainPage();
     }
 
-    public static void tests() {
+    public static void findTests() {
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
         System.out.println(databaseHandler.findNoteDataByID(1));
@@ -22,21 +23,6 @@ public class Main {
         System.out.println(databaseHandler.findTagDataByTag("film"));
 
         System.out.println("All note data: " + databaseHandler.findAllNoteData());
-
-        NoteContent testData = new NoteContent();
-        testData.setTitle("Test Data");
-        testData.setBody("Test Content");
-        testData.setDateTime(LocalDateTime.now());
-
-        TagContent tagData = new TagContent();
-        tagData.setTag("Hats");
-        tagData.setNote_id(testData.getId());
-
-        //databaseHandler.addTagToSpecificID(tagData.getTag(), 3);
-        //databaseHandler.addTagToSpecificID("Hat", 3);
-
-        //databaseHandler.deleteAllTagsAtID(3);
-        //databaseHandler.deleteSpecificTagAtID("Hat", 3);
 
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         //int[] result = guiFunctionHandler.simpleFindMostRecentNoteIDs();
@@ -56,9 +42,44 @@ public class Main {
         updateTestData.setId(5);
         updateTestData.setTitle("Updated Data");
         updateTestData.setBody("Updated Content");
-        updateTestData.setDateTime(LocalDateTime.now());
-
+        updateTestData.setDateTime(DateTime.now());
         databaseHandler.updateNoteDataAtSpecificID(updateTestData);
+
+    }
+
+    public static void createTest() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        NoteContent testData = new NoteContent();
+        testData.setTitle("Test Data");
+        testData.setBody("Test Content");
+        testData.setDateTime(DateTime.now());
+
+        TagContent tagData = new TagContent();
+        tagData.setTag("Hats");
+        tagData.setNote_id(5);
+
+        databaseHandler.storeNoteDataAtNextID(testData);
+        System.out.println("Attemping to add Tag: " + tagData.getTag() + " to id: " + tagData.getNote_id());
+        databaseHandler.addTagToSpecificID(tagData.getTag(),tagData.getNote_id());
+    }
+
+    public static void updateTest() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        NoteContent updateTestData = new NoteContent();
+        updateTestData.setId(5);
+        updateTestData.setTitle("Updated Data");
+        updateTestData.setBody("Updated Content");
+        updateTestData.setDateTime(DateTime.now());
+        databaseHandler.updateNoteDataAtSpecificID(updateTestData);
+    }
+
+    public static void deleteTest() {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        databaseHandler.deleteAllTagsAtID(5);
+        databaseHandler.deleteNoteDataAtID(5);
 
     }
 }
