@@ -5,6 +5,8 @@ public class Main {
 
         System.out.println("Meow");
 
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        System.out.println(databaseHandler.findMaxIDinNoteTable());
         //findTests();
         //deleteTest();
         //createTest();
@@ -32,19 +34,7 @@ public class Main {
             System.out.println("Smart Most Recent Note IDs: " + item);
         }
 
-
         System.out.println(databaseHandler.findTagDataByID(1));
-
-        //databaseHandler.storeNoteDataAtNextID(testData);
-        //databaseHandler.deleteNoteDataAtID(4);
-
-        NoteContent updateTestData = new NoteContent();
-        updateTestData.setId(5);
-        updateTestData.setTitle("Updated Data");
-        updateTestData.setBody("Updated Content");
-        updateTestData.setDateTime(DateTime.now());
-        databaseHandler.updateNoteDataAtSpecificID(updateTestData);
-
     }
 
     public static void createTest() {
@@ -57,10 +47,12 @@ public class Main {
 
         TagContent tagData = new TagContent();
         tagData.setTag("Hats");
-        tagData.setNote_id(5);
+        tagData.setNote_id(databaseHandler.findMaxIDinNoteTable());
+
+        //TODO: Make the above command find the right ID automatically.
 
         databaseHandler.storeNoteDataAtNextID(testData);
-        System.out.println("Attemping to add Tag: " + tagData.getTag() + " to id: " + tagData.getNote_id());
+        System.out.println("Attempting to add Tag: " + tagData.getTag() + " to id: " + tagData.getNote_id());
         databaseHandler.addTagToSpecificID(tagData.getTag(),tagData.getNote_id());
     }
 

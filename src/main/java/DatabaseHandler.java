@@ -41,14 +41,14 @@ public class DatabaseHandler {
 
         try {
 
-            Optional<NoteContent> NoteContent = jdbi.withHandle(handle -> {
+            Optional<NoteContent> noteContent = jdbi.withHandle(handle -> {
                 return handle.select("SELECT * FROM note_content where id=" + id)
                         .mapToBean(NoteContent.class)
                         .findOne();
             });
             // TODO: Add exception handler for >1 results.
-            if (NoteContent.isPresent()) {
-                return NoteContent;
+            if (noteContent.isPresent()) {
+                return noteContent;
             } else {
                 return null;
             }
@@ -77,6 +77,27 @@ public class DatabaseHandler {
         }
 
         return results;
+    }
+
+    public int findMaxIDinNoteTable() {
+
+        try {
+
+            Optional<Integer> result = jdbi.withHandle(handle -> {
+                return handle.select("select max(id) as LastID from note_content")
+                        .mapTo(Integer.class)
+                        .findOne();
+            });
+
+            if (result.isPresent()) {
+                return result.get();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 
     public List<TagContent> findTagDataByTag(String tag) {
@@ -231,6 +252,8 @@ public class DatabaseHandler {
             e.printStackTrace();
         }
     }
+
+
 
     /* methods to access sql
     Default Screen:
