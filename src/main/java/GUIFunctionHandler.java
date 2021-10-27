@@ -85,7 +85,7 @@ public class GUIFunctionHandler {
         new GUISearchResultsPage(search_parameters);
     }
 
-    public void saveNoteInfo(NoteContent noteContent, String[] tagsList) {
+    public void saveNoteInfo(NoteContent noteContent, List<String> tagsList) {
         System.out.println(noteContent.toString());
         for (String tag: tagsList) {
             System.out.println("#" + tag);

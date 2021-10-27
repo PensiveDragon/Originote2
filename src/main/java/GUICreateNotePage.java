@@ -1,7 +1,14 @@
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.event.*;
+import java.util.List;
 
 public class GUICreateNotePage extends JFrame implements ActionListener {
 
@@ -75,7 +82,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             noteContent.setBody(bodyTextFieldLabel.getText());
             //TagContent tagContent = new TagContent();
             //tagContent.setTag(tagsTextFieldLabel.getText());
-            String[] tagsList = createTagsList(tagsTextFieldLabel.getText());
+            List<String> tagsList = TagsParser.createTagsList(tagsTextFieldLabel.getText());
 
             guiFunctionHandler.saveNoteInfo(noteContent, tagsList);
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
@@ -190,19 +197,6 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
     }
 
-    public String[] createTagsList(String raw_string) {
-
-        String[] tags = raw_string.split("#");
-        for (int i = 0; i < tags.length; i++) {
-            tags[i].trim();
-            System.out.println(tags[i]);
-            if (!tags[i].isEmpty()) {
-
-            }
-        }
-        System.out.println(tags.length);
-        return tags;
-    }
 }
 
 //    ## Create Note Page To Do
