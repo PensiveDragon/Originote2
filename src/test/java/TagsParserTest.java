@@ -14,4 +14,19 @@ class TagsParserTest {
         List<String> tagsList = TagsParser.createTagsList(tag);
         assertThat(tagsList, contains("blessed"));
     }
+
+    @Test
+    public void parses_double_tag() {
+        String tags = "#bestlife #nofilter";
+        List<String> tagsList = TagsParser.createTagsList(tags);
+        assertThat(tagsList, contains("bestlife", "nofilter"));
+    }
+
+
 }
+
+/*
+string length restrictions
+character restrictions
+blank?
+ */
