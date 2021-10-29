@@ -141,7 +141,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
         tagsTextFieldLabel.setBackground(Color.white);
         tagsTextFieldLabel.setBorder(simpleBorder);
         tagsTextFieldLabel.setFont(bodyFont);
-        tagsTextFieldLabel.setText("Tags...");
+        tagsTextFieldLabel.setText("#Tags...");
         tagsTextFieldLabel.setForeground(Color.GRAY);
         tagsTextFieldLabel.addFocusListener(new FocusListener() {
             @Override
@@ -156,7 +156,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             @Override
             public void focusLost(FocusEvent e) {
                 if (tagsTextFieldLabel.getText().isEmpty()) {
-                    tagsTextFieldLabel.setText("Tags...");
+                    tagsTextFieldLabel.setText("#Tags...");
                     tagsTextFieldLabel.setForeground(Color.GRAY);
                     tagsTextFieldClickedOn = false;
                 }

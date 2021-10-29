@@ -22,7 +22,10 @@ class TagsParserTest {
         assertThat(tagsList, contains("bestlife", "nofilter"));
     }
 
+    @Test
+    public void parses_malformed_tag() {
 
+    }
 }
 
 /*
