@@ -90,8 +90,13 @@ public class GUIMainPage extends JFrame implements ActionListener {
         searchButton.addActionListener(e -> {
             System.out.println("Search Button Clicked!");
             String search_parameters = jSearchTextField.getText();
-            if ((!search_parameters.isEmpty()) & (!search_parameters.equals("Search..."))) {
-                guiFunctionHandler.openNewSearchResultsPage(search_parameters);
+            if (search_parameters.isEmpty()) {
+                jSearchTextField.setText("Enter search terms...");
+                jSearchTextField.setForeground(Color.gray);
+            } else {
+                if ((!search_parameters.isEmpty()) & (!search_parameters.equals("Search..."))) {
+                    guiFunctionHandler.openNewSearchResultsPage(search_parameters);
+                }
             }
         });
         searchButton.setFocusable(false);

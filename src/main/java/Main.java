@@ -5,8 +5,8 @@ public class Main {
 
         System.out.println("Meow");
 
-        DatabaseHandler databaseHandler = new DatabaseHandler();
-        System.out.println(databaseHandler.findMaxIDinNoteTable());
+        //DatabaseHandler databaseHandler = new DatabaseHandler();
+        //System.out.println(databaseHandler.findMaxIDinNoteTable());
         //findTests();
         //deleteTest();
         //createTest();
