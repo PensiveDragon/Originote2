@@ -80,6 +80,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             NoteContent noteContent = new NoteContent();
             noteContent.setTitle(titleTextFieldLabel.getText());
             noteContent.setBody(bodyTextFieldLabel.getText());
+            noteContent.setDateTime(DateTime.now());
             //TagContent tagContent = new TagContent();
             //tagContent.setTag(tagsTextFieldLabel.getText());
             List<String> tagsList = TagsParser.createTagsList(tagsTextFieldLabel.getText());

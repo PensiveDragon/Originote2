@@ -88,8 +88,10 @@ public class GUIFunctionHandler {
     public void saveNoteInfo(NoteContent noteContent, List<String> tagsList) {
         System.out.println(noteContent.toString());
         databaseHandler.storeNoteDataAtNextID(noteContent);
+        int currentID = databaseHandler.findMaxIDinNoteTable();
         for (String tag: tagsList) {
             System.out.println("#" + tag);
+            databaseHandler.addTagToSpecificID(tag, currentID);
         }
 
 
