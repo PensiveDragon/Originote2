@@ -8,6 +8,8 @@ import java.util.List;
 
 public class GUIViewNotePage extends JFrame implements ActionListener {
 
+    GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+
     ImageIcon image = new ImageIcon("Originote.png");
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
@@ -66,6 +68,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         editNoteButton.setFocusable(false);
         editNoteButton.addActionListener(e -> {
             System.out.println("Edit Button Clicked!");
+            guiFunctionHandler.openNewCreateNotePage();
         });
 
         deleteNoteButton.setText("Delete Note");

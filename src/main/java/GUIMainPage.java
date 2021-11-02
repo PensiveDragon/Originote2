@@ -58,7 +58,7 @@ public class GUIMainPage extends JFrame implements ActionListener {
         newNoteButton.setBackground(Color.white);
         newNoteButton.addActionListener(e -> {
             System.out.println("New Note Button Clicked!");
-            guiFunctionHandler.openNewCreateNotePage();
+            guiFunctionHandler.openNewCreateNotePage(null);
         });
         newNoteButton.setFocusable(false);
 
@@ -183,7 +183,7 @@ public class GUIMainPage extends JFrame implements ActionListener {
                 recentNotes[i].setText(" Create a new Note!");
                 recentNotes[i].addActionListener(e -> {
                     System.out.println("Recent Notes Create New Note Button Clicked!");
-                    guiFunctionHandler.openNewCreateNotePage();
+                    guiFunctionHandler.openNewCreateNotePage(null);
                 });
             }
         }

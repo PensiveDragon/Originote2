@@ -41,7 +41,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     boolean tagsTextFieldClickedOn = false;
     boolean bodyTextAreaClickedOn = false;
 
-    public GUICreateNotePage() {
+    public GUICreateNotePage(NoteContent existingNoteContent) {
         this.setTitle("Originote - Create New Note");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
