@@ -193,6 +193,12 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
         if (existingNoteContent!=null) {
             System.out.println("We got one!");
+            System.out.println("NoteContent ID " + existingNoteContent.getId() + " passed in");
+            titleTextFieldLabel.setText(existingNoteContent.getTitle());
+            titleTextFieldLabel.setForeground(Color.black);
+            bodyTextFieldLabel.setText(existingNoteContent.getBody());
+            bodyTextFieldLabel.setForeground(Color.black);
+
         }
 
     }
