@@ -198,9 +198,9 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             titleTextFieldLabel.setForeground(Color.black);
             bodyTextFieldLabel.setText(existingNoteContent.getBody());
             bodyTextFieldLabel.setForeground(Color.black);
-
+            tagsTextFieldLabel.setText(guiFunctionHandler.assembleTagsString(existingNoteContent.getId()));
+            tagsTextFieldLabel.setForeground(Color.black);
         }
-
     }
 
     @Override

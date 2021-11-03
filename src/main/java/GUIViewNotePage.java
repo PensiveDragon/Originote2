@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,8 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
     Font bodyFont = new Font("Default",Font.PLAIN,18);
 
     NoteContent currentNoteContent;
+    List<TagContent> currentTagContents;
+    String[] currentStringTagContents;
 
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
@@ -131,6 +134,16 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
     public NoteContent sendNoteDetails(int note_id) {
         DatabaseHandler databaseHandler = new DatabaseHandler();
         return currentNoteContent = databaseHandler.findNoteDataByID(note_id);
+    }
+
+    public List<TagContent> sendTagDetails(int note_id) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        return currentTagContents = databaseHandler.findTagDataByID(note_id);
+    }
+
+    public String[] sendStringTagDetails(int note_id) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        return currentStringTagContents = databaseHandler.findTagsByID(note_id);
     }
 
     @Override
