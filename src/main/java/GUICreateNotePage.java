@@ -191,6 +191,10 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             }
         });
 
+        if (existingNoteContent!=null) {
+            System.out.println("We got one!");
+        }
+
     }
 
     @Override

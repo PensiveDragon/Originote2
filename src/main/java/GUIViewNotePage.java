@@ -17,6 +17,8 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
     Font tagsFont = new Font("Default",Font.ITALIC,18);
     Font bodyFont = new Font("Default",Font.PLAIN,18);
 
+    NoteContent currentNoteContent;
+
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
     JPanel menuBarSubPanel = new JPanel();
@@ -68,7 +70,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         editNoteButton.setFocusable(false);
         editNoteButton.addActionListener(e -> {
             System.out.println("Edit Button Clicked!");
-            guiFunctionHandler.openNewCreateNotePage(null);
+            guiFunctionHandler.openNewCreateNotePage(sendNoteDetails(note_id));
         });
 
         deleteNoteButton.setText("Delete Note");
@@ -124,7 +126,11 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         titleLabel.setText(noteContent.getTitle());
         tagsLabel.setText(guiFunctionHandler.assembleTagsString(note_id));
         bodyLabel.setText(noteContent.getBody());
+    }
 
+    public NoteContent sendNoteDetails(int note_id) {
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        return currentNoteContent = databaseHandler.findNoteDataByID(note_id);
     }
 
     @Override
