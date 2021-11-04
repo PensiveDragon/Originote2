@@ -16,6 +16,10 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
     ImageIcon image = new ImageIcon("Originote.png");
 
+    NoteContent noteContent;
+    NoteContent newNoteContent;
+    List<String> tagsList;
+
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
     JPanel menuBarSubPanel = new JPanel();
@@ -42,6 +46,7 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     boolean bodyTextAreaClickedOn = false;
 
     public GUICreateNotePage(NoteContent existingNoteContent) {
+        newNoteContent = existingNoteContent;
         this.setTitle("Originote - Create New Note");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
@@ -77,15 +82,17 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             System.out.println("Save Note Button Clicked!");
             //TODO: Add function to save note - Function / Database handler action
             //TODO: Add function to update most recent notes list
-            NoteContent noteContent = new NoteContent();
+            noteContent = new NoteContent();
             noteContent.setTitle(titleTextFieldLabel.getText());
             noteContent.setBody(bodyTextFieldLabel.getText());
             noteContent.setDateTime(DateTime.now());
             //TagContent tagContent = new TagContent();
             //tagContent.setTag(tagsTextFieldLabel.getText());
-            List<String> tagsList = TagsParser.createTagsList(tagsTextFieldLabel.getText());
+            tagsList = TagsParser.createTagsList(tagsTextFieldLabel.getText());
 
-            guiFunctionHandler.saveNoteInfo(noteContent, tagsList);
+//            guiFunctionHandler.saveNoteInfo(noteContent, tagsList);
+            saveNoteButtonFunction();
+
             this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
@@ -206,6 +213,15 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+    }
+
+    public void saveNoteButtonFunction() {
+        System.out.println("newNoteContent = " + newNoteContent.toString());
+        if (newNoteContent!=null) {
+            guiFunctionHandler.saveNoteInfo(noteContent, tagsList);
+        } else {
+            guiFunctionHandler.updateNoteInfo(noteContent, tagsList);
+        }
     }
 
 }
