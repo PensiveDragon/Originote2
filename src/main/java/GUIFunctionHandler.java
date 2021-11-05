@@ -98,12 +98,12 @@ public class GUIFunctionHandler {
     }
 
     public void updateNoteInfo(NoteContent noteContent, List<String> tagsList) {
-        databaseHandler.updateNoteDataAtSpecificID(noteContent);
         databaseHandler.deleteAllTagsAtID(noteContent.getId());
         for (String tag: tagsList) {
             System.out.println("#" + tag);
             databaseHandler.addTagToSpecificID(tag, noteContent.getId());
         }
+        databaseHandler.updateNoteDataAtSpecificID(noteContent);
     }
 
     public void deleteNote(int id) {
