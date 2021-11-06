@@ -47,7 +47,12 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
 
     public GUICreateNotePage(NoteContent existingNoteContent) {
         newNoteContent = existingNoteContent;
-        this.setTitle("Originote - Create New Note");
+        if (existingNoteContent!=null) {
+            this.setTitle("Originote - Edit Note: " + existingNoteContent.getTitle());
+        } else {
+            this.setTitle("Originote - Create New Note");
+        }
+
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setResizable(false);
         this.setSize(640,480);
