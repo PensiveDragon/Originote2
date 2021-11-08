@@ -14,6 +14,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
     JPanel menuBarPanel = new JPanel();
     JPanel bodyPanel = new JPanel();
     JPanel searchResultsPanel = new JPanel();
+    JPanel searchResultsListPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel headingLabel = new JLabel();
@@ -61,7 +62,10 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         searchResultsPanel.setBackground(Color.white);
         searchResultsPanel.setLayout(new FlowLayout());
 
-        searchResultsPanel.add(headingLabel,BorderLayout.NORTH);
+        searchResultsPanel.add(searchResultsListPanel,BorderLayout.NORTH);
+        searchResultsListPanel.setLayout(new GridLayout(6,1,8,8));
+        searchResultsListPanel.add(headingLabel);
+
 
         JButton test = new JButton();
         test.setText("Testing");
