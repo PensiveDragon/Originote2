@@ -23,6 +23,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
 
     Font bodyFont = new Font("Default",Font.PLAIN,18);
+    Font testFont = new Font("Default",Font.PLAIN,32);
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
@@ -56,20 +57,23 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         bodyPanel.setBackground(Color.white);
         bodyPanel.add(searchResultsPanel,BorderLayout.CENTER);
 
-        headingLabel.setText("x Results for: " + search_parameters);
-
         searchResultsPanel.setPreferredSize(new Dimension(80,80));
         searchResultsPanel.setBackground(Color.white);
         searchResultsPanel.setLayout(new FlowLayout());
 
         searchResultsPanel.add(searchResultsListPanel,BorderLayout.NORTH);
         searchResultsListPanel.setLayout(new GridLayout(6,1,8,8));
+        searchResultsListPanel.setBounds(10,50, 600,250);
         searchResultsListPanel.add(headingLabel);
 
+        headingLabel.setText("x Results for: \"" + search_parameters + "\"");
+        headingLabel.setFont(testFont);
+        headingLabel.setHorizontalAlignment(0);
 
         JButton test = new JButton();
         test.setText("Testing");
-        searchResultsPanel.add(test);
+        test.setPreferredSize(new Dimension(500, 40));
+        searchResultsListPanel.add(test);
 
 
     }
