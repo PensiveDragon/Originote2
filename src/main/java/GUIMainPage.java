@@ -13,10 +13,12 @@ public class GUIMainPage extends JFrame implements ActionListener {
     JPanel searchBarPanel = new JPanel();
     JPanel recentNotesPanel = new JPanel();
     JPanel displayListPanel = new JPanel();
+    JPanel displayListTitlePanel = new JPanel();
 
     JButton newNoteButton;
     JButton listNotesButton;
     JButton recentNotes[] = new JButton[5];
+    JButton refreshButton = new JButton();
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel displayListLabel = new JLabel();
@@ -68,9 +70,15 @@ public class GUIMainPage extends JFrame implements ActionListener {
         listNotesButton.addActionListener(e -> System.out.println("List Notes Button Clicked!"));
         listNotesButton.setFocusable(false);
 
+        refreshButton.setText("Refresh");
+        refreshButton.setBackground(Color.white);
+        refreshButton.addActionListener(e -> System.out.println("Refresh Button Clicked!"));
+        refreshButton.setFocusable(false);
+
         menuBarPanel.add(originoteIconjLabel);
         menuBarPanel.add(newNoteButton);
         menuBarPanel.add(listNotesButton);
+        menuBarPanel.add(refreshButton);
 
         bodyPanel.setLayout(new BorderLayout(10,10));
 
@@ -140,16 +148,26 @@ public class GUIMainPage extends JFrame implements ActionListener {
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
 
+
+
         displayListPanel.setLayout(new GridLayout(6,1, 8, 8));
         displayListPanel.setBounds(10,50, 600,250);
         displayListPanel.setBackground(Color.white);
+        //displayListPanel.add(displayListTitlePanel);
         displayListPanel.add(displayListLabel);
-        //displayListPanel.setBorder(testBoundsBorder);
+
+        //displayListTitlePanel.setLayout(new FlowLayout());
+        //displayListTitlePanel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        //displayListTitlePanel.add(refreshButton);
+        //displayListTitlePanel.add(displayListLabel);
 
         displayListLabel.setText("Recent Notes:");
         displayListLabel.setFont(testFont);
         displayListLabel.setHorizontalAlignment(0);
-        //displayListLabel0.setBorder(testBoundsBorder);
+
+
+
+
 
         populateRecentNotes();
 
