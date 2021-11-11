@@ -72,7 +72,10 @@ public class GUIMainPage extends JFrame implements ActionListener {
 
         refreshButton.setText("Refresh");
         refreshButton.setBackground(Color.white);
-        refreshButton.addActionListener(e -> System.out.println("Refresh Button Clicked!"));
+        refreshButton.addActionListener(e -> {
+            System.out.println("Refresh Button Clicked!");
+            refreshUI();
+        });
         refreshButton.setFocusable(false);
 
         menuBarPanel.add(originoteIconjLabel);
@@ -207,8 +210,23 @@ public class GUIMainPage extends JFrame implements ActionListener {
         }
     }
 
-    public void updateUI() {
-        this.validate();
+    public void refreshUI() {
+        System.out.println("Refreshing UI Method Called.");
+
+        int n = 0;
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+        for (int i = 0; i < 5; i++) {
+            if (recentIDs[n] > 0) {
+                recentNotes[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
+            } else {
+                recentNotes[i].setText(" Create a new Note!");
+                recentNotes[i].addActionListener(e -> {
+                    System.out.println("Recent Notes Create New Note Button Clicked!");
+                    guiFunctionHandler.openNewCreateNotePage(null);
+                });
+            }
+        }
     }
 
     @Override
