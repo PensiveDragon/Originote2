@@ -74,6 +74,7 @@ public class GUIViewNotePage extends JFrame implements ActionListener {
         editNoteButton.addActionListener(e -> {
             System.out.println("Edit Button Clicked!");
             guiFunctionHandler.openNewCreateNotePage(sendNoteDetails(note_id));
+            this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
         });
 
         deleteNoteButton.setText("Delete Note");
