@@ -64,6 +64,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         searchResultsPanel.add(searchResultsListPanel,BorderLayout.NORTH);
         searchResultsListPanel.setLayout(new GridLayout(6,1,8,8));
         searchResultsListPanel.setBounds(10,50, 600,250);
+        searchResultsListPanel.setBackground(Color.WHITE);
         searchResultsListPanel.add(headingLabel);
 
         headingLabel.setText("x Results for: \"" + search_parameters + "\"");
@@ -73,6 +74,11 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         JButton test = new JButton();
         test.setText("Testing");
         test.setPreferredSize(new Dimension(500, 40));
+        test.setBackground(Color.white);
+        test.setBorder(simpleBorder);
+        test.setHorizontalAlignment(SwingConstants.LEFT);
+        test.setFocusable(false);
+
         searchResultsListPanel.add(test);
 
 
