@@ -78,6 +78,9 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         test.setBorder(simpleBorder);
         test.setHorizontalAlignment(SwingConstants.LEFT);
         test.setFocusable(false);
+        test.addActionListener(e -> {
+            System.out.println("Test Result Button Clicked!");
+        });
 
         searchResultsListPanel.add(test);
 
