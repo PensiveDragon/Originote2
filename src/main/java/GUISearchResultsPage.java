@@ -19,6 +19,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
     JLabel originoteIconjLabel = new JLabel();
     JLabel headingLabel = new JLabel();
 
+    JButton searchResults[] = new JButton[5];
+
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
 
@@ -82,9 +84,40 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
             System.out.println("Test Result Button Clicked!");
         });
 
-        searchResultsListPanel.add(test);
+        //searchResultsListPanel.add(test);
+        populateSearchResults();
 
 
+    }
+
+    private void populateSearchResults() {
+        int n = 0;
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+
+        for (int i = 0; i <5; i++) {
+            searchResults[i] = new JButton();
+            searchResults[i].setText("" + (i+1));
+            searchResultsListPanel.add(searchResults[i]);
+            searchResults[i].setPreferredSize(new Dimension(500, 40));
+            searchResults[i].setBackground(Color.white);
+            searchResults[i].setBorder(simpleBorder);
+            searchResults[i].setHorizontalAlignment(SwingConstants.LEFT);
+            searchResults[i].setFocusable(false);
+
+/*
+            if (recentIDs[n] > 0) {
+                //System.out.println("info i=" + i + " n=" + n + "recentIDs[n]=" + recentIDs[n]);
+                searchResults[i].addActionListener(this);
+                searchResults[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, recentIDs[n - 1]));
+            } else {
+                searchResults[i].setText(" Create a new Note!");
+                searchResults[i].addActionListener(e -> {
+                    System.out.println("Recent Notes Create New Note Button Clicked!");
+                    guiFunctionHandler.openNewCreateNotePage(null);
+                });
+            }*/
+        }
     }
 /*
     public void populateSearchResultsList() {
