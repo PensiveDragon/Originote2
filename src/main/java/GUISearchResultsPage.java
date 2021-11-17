@@ -1,9 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class GUISearchResultsPage extends JFrame implements ActionListener {
 
@@ -15,11 +13,16 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
     JPanel bodyPanel = new JPanel();
     JPanel searchResultsPanel = new JPanel();
     JPanel searchResultsListPanel = new JPanel();
+    JPanel searchBarPanel = new JPanel();
 
     JLabel originoteIconjLabel = new JLabel();
     JLabel headingLabel = new JLabel();
 
     JButton searchResults[] = new JButton[5];
+
+    JTextField jSearchTextField = new JTextField();
+
+    boolean jSearchTextFieldClicked = false;
 
     Border simpleBorder = BorderFactory.createLineBorder(Color.black, 1);
     Border checkBorder = BorderFactory.createDashedBorder(Color.black);
@@ -53,11 +56,66 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
         menuBarPanel.add(originoteIconjLabel);
 
-    //### BODY PANEL SETUP
+
+        //### SEARCH BAR PANEL SETUP
+
+
+        //searchBarPanel.setPreferredSize(new Dimension(640,50));
+        searchBarPanel.setBackground(Color.white);
+        searchBarPanel.setLayout(new FlowLayout());
+        searchBarPanel.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        searchBarPanel.validate();
+
+        JButton searchButton = new JButton();
+        searchButton.setText("Search");
+        searchButton.setBackground(Color.white);
+        searchButton.addActionListener(e -> {
+            System.out.println("Search Button Clicked!");
+            String new_search_parameters = jSearchTextField.getText();
+            if (new_search_parameters.isEmpty()) {
+                jSearchTextField.setText("Enter search terms...");
+                jSearchTextField.setForeground(Color.gray);
+            } else {
+                if ((!new_search_parameters.isEmpty()) & (!new_search_parameters.equals("Search..."))) {
+                    guiFunctionHandler.openNewSearchResultsPage(new_search_parameters);
+                }
+            }
+        });
+        searchButton.setFocusable(false);
+
+        jSearchTextField.setToolTipText("Search Bar");
+        jSearchTextField.setText("Search...");
+        jSearchTextField.setPreferredSize(new Dimension(400,30));
+        jSearchTextField.setForeground(Color.GRAY);
+        jSearchTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if (!jSearchTextFieldClicked) {
+                    jSearchTextField.setText("");
+                    jSearchTextField.setForeground(Color.BLACK);
+                    jSearchTextFieldClicked = true;
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if (jSearchTextField.getText().isEmpty()) {
+                    jSearchTextField.setText("Search...");
+                    jSearchTextField.setForeground(Color.GRAY);
+                    jSearchTextFieldClicked = false;
+                }
+            }
+        });
+
+        searchBarPanel.add(searchButton);
+        searchBarPanel.add(jSearchTextField);
+
+        //### BODY PANEL SETUP
 
         bodyPanel.setLayout(new BorderLayout(10,10));
         bodyPanel.setBackground(Color.white);
         bodyPanel.add(searchResultsPanel,BorderLayout.CENTER);
+        bodyPanel.add(searchBarPanel,BorderLayout.NORTH);
 
         searchResultsPanel.setPreferredSize(new Dimension(80,80));
         searchResultsPanel.setBackground(Color.white);
