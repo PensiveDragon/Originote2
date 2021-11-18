@@ -115,6 +115,29 @@ public class DatabaseHandler {
         }
     }
 
+    public int[] findIDByTag(String tag) {
+
+        List<TagContent> TagContents = jdbi.withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM tags_to_notes where tag='" + tag + "'")
+                    .mapToBean(TagContent.class)
+                    .list();
+        });
+
+        int[] results = new int[TagContents.size()];
+        int i = 0;
+
+        if (TagContents.size() != 0) {
+            for (TagContent tagContent: TagContents) {
+                results[i] = tagContent.getNote_id();
+                i++;
+            }
+            return results;
+        } else {
+            int[] empty = new int[0];
+            return empty;
+        }
+    }
+
     public List<TagContent> findTagDataByID(int id) {
 
         List<TagContent> TagContents = jdbi.withHandle(handle -> {
