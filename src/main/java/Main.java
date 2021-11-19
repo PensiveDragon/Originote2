@@ -7,7 +7,7 @@ public class Main {
 
         //DatabaseHandler databaseHandler = new DatabaseHandler();
         //System.out.println(databaseHandler.findMaxIDinNoteTable());
-        //findTests();
+        findTests();
         //deleteTest();
         //createTest();
         //updateTest();
@@ -17,6 +17,12 @@ public class Main {
 
     public static void findTests() {
         DatabaseHandler databaseHandler = new DatabaseHandler();
+
+        System.out.println("Number of notes with the tag #film: " + databaseHandler.findIDByTag("film").length);
+
+        System.out.println("Number of notes with the tag #gopher: " + databaseHandler.findIDByTag("gopher").length);
+
+        System.out.println("ID of first note with tag #film: " + databaseHandler.findIDByTag("film")[0]);
 
         System.out.println(databaseHandler.findNoteDataByID(1));
 
