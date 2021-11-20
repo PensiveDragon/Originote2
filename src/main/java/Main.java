@@ -24,6 +24,8 @@ public class Main {
 
         System.out.println("ID of first note with tag #film: " + databaseHandler.findIDByTag("film")[0]);
 
+        System.out.println("ID of first note with no tag found: " + databaseHandler.findIDByTag("hat")[0]);
+
         System.out.println(databaseHandler.findNoteDataByID(1));
 
         System.out.println(databaseHandler.findNoteDataByIDOptional(1));

@@ -77,7 +77,6 @@ public class GUIFunctionHandler {
                 result += "  |  ";
             }
         }
-
         return result;
     }
 
@@ -93,8 +92,6 @@ public class GUIFunctionHandler {
             System.out.println("#" + tag);
             databaseHandler.addTagToSpecificID(tag, currentID);
         }
-
-
     }
 
     public void updateNoteInfo(NoteContent noteContent, List<String> tagsList) {
@@ -110,5 +107,10 @@ public class GUIFunctionHandler {
         databaseHandler.deleteAllTagsAtID(id);
         databaseHandler.deleteNoteDataAtID(id);
         System.out.println("Deleted note @ ID: " + id);
+    }
+
+    public void searchByTag(String searchPhrase) {
+        List<TagContent> TagContents = databaseHandler.findTagDataByTag(searchPhrase);
+
     }
 }
