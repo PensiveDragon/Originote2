@@ -145,6 +145,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         //searchResultsListPanel.add(test);
         populateSearchResults();
 
+        //guiFunctionHandler.searchByTag(search_parameters);
 
     }
 
@@ -152,6 +153,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         int n = 0;
         GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
         int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
+
+
 
         for (int i = 0; i <5; i++) {
             searchResults[i] = new JButton();
