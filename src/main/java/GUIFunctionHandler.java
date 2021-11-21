@@ -111,6 +111,8 @@ public class GUIFunctionHandler {
 
     public void searchByTag(String searchPhrase) {
         List<TagContent> TagContents = databaseHandler.findTagDataByTag(searchPhrase);
-
+        for (TagContent tag : TagContents) {
+            System.out.println("Number of Notes with tag: \"" + searchPhrase + "\" : " + tag.getNote_id());
+        }
     }
 }
