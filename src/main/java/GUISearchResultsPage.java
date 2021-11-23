@@ -127,7 +127,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         searchResultsListPanel.setBackground(Color.WHITE);
         searchResultsListPanel.add(headingLabel);
 
-        headingLabel.setText("x Results for: \"" + search_parameters + "\"");
+
+        headingLabel.setText(guiFunctionHandler.searchQtyByTag(search_parameters) + " Results for: \"" + search_parameters + "\"");
         headingLabel.setFont(testFont);
         headingLabel.setHorizontalAlignment(0);
 
