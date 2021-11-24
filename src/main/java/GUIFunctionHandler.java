@@ -118,7 +118,10 @@ public class GUIFunctionHandler {
 
     public int searchQtyByTag(String searchPhrase) {
         List<TagContent> TagContents = databaseHandler.findTagDataByTag(searchPhrase);
-        int result = TagContents.size();
+        int result = 0;
+        if (TagContents!=null) {
+            result = TagContents.size();
+        };
         return result;
     }
 }
