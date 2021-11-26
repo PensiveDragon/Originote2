@@ -69,9 +69,17 @@ public class GUIFunctionHandler {
     public String assembleTagsString(int note_id) {
         String result = "";
 
+
         DatabaseHandler databaseHandler = new DatabaseHandler();
         String[] tags = databaseHandler.findTagsByID(note_id);
         for (int i = 0; i < tags.length; i++) {
+            /*String temp = "";
+            if (tags[i].contains("  |  ")) {
+                System.out.println("ASSEMBLE TAGS STRING: " + tags[i]);
+                temp = tags[i].substring(0,tags[i].length()-5);
+                System.out.println("ASSEMBLE TAGS STRING: " +temp);
+            }*/
+
             result += "#" + tags[i];
             if ((tags.length - 1) > i) {
                 result += "  |  ";
@@ -96,9 +104,13 @@ public class GUIFunctionHandler {
 
     public void updateNoteInfo(NoteContent noteContent, List<String> tagsList) {
         databaseHandler.deleteAllTagsAtID(noteContent.getId());
+
         for (String tag: tagsList) {
+            String temp = "";
             System.out.println("#" + tag);
-            databaseHandler.addTagToSpecificID(tag, noteContent.getId());
+            temp = tag.replace("|", "");
+            //temp = temp.strip();
+            databaseHandler.addTagToSpecificID(temp, noteContent.getId());
         }
         databaseHandler.updateNoteDataAtSpecificID(noteContent);
     }
