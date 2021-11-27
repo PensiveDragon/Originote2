@@ -107,8 +107,14 @@ public class GUIFunctionHandler {
 
         for (String tag: tagsList) {
             String temp = "";
+            char c = 32;
             System.out.println("#" + tag);
             temp = tag.replace("|", "");
+            for (int i = 0; i<temp.length(); i++) {
+                if (temp.charAt(0)==c) {
+                    System.out.println("Space!");
+                }
+            }
             //temp = temp.strip();
             databaseHandler.addTagToSpecificID(temp, noteContent.getId());
         }
