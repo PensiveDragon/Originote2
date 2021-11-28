@@ -91,7 +91,9 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
             noteContent.setTitle(titleTextFieldLabel.getText());
             noteContent.setBody(bodyTextFieldLabel.getText());
             noteContent.setDateTime(DateTime.now());
-            noteContent.setId(newNoteContent.getId());
+            if (newNoteContent!=null) {
+                noteContent.setId(newNoteContent.getId());
+            }
             //TagContent tagContent = new TagContent();
             //tagContent.setTag(tagsTextFieldLabel.getText());
             tagsList = TagsParser.createTagsList(tagsTextFieldLabel.getText());
@@ -225,10 +227,12 @@ public class GUICreateNotePage extends JFrame implements ActionListener {
     }
 
     public void saveNoteButtonFunction() {
-        System.out.println("newNoteContent = " + newNoteContent.toString());
+
         if (newNoteContent!=null) {
+            System.out.println("Updating note: " + newNoteContent.getTitle() + " to: " + noteContent.getTitle());
             guiFunctionHandler.updateNoteInfo(noteContent, tagsList);
         } else {
+            System.out.println("Saving new note = " + noteContent.getTitle());
             guiFunctionHandler.saveNoteInfo(noteContent, tagsList);
         }
     }

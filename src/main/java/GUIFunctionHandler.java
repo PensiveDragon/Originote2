@@ -105,6 +105,8 @@ public class GUIFunctionHandler {
     public void updateNoteInfo(NoteContent noteContent, List<String> tagsList) {
         databaseHandler.deleteAllTagsAtID(noteContent.getId());
 
+        System.out.println("Updating Note Info!");
+
         for (String tag: tagsList) {
             String temp = "";
             char c = 32;
