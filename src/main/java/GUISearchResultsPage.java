@@ -146,7 +146,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         //searchResultsListPanel.add(test);
         populateSearchResults();
 
-        //guiFunctionHandler.searchByTag(search_parameters);
+        guiFunctionHandler.searchByTag(search_parameters);
 
     }
 
@@ -166,6 +166,9 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
             searchResults[i].setBorder(simpleBorder);
             searchResults[i].setHorizontalAlignment(SwingConstants.LEFT);
             searchResults[i].setFocusable(false);
+            searchResults[i].addActionListener(e -> {
+                System.out.println("Test Result Button Clicked!");
+            });
 
 /*
             if (recentIDs[n] > 0) {

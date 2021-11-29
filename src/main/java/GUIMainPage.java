@@ -44,7 +44,9 @@ public class GUIMainPage extends JFrame implements ActionListener {
         this.setIconImage(image.getImage());
         //this.getContentPane().setBackground(Color.gray);
 
+
         //### MENU BAR PANEL SETUP
+
 
         menuBarPanel.setPreferredSize(new Dimension(640,50));
         menuBarPanel.setBackground(Color.white);
