@@ -144,18 +144,20 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         });
 
         //searchResultsListPanel.add(test);
-        populateSearchResults();
 
-        guiFunctionHandler.searchByTag(search_parameters);
 
+        //guiFunctionHandler.searchByTag(search_parameters);
+
+        if (new DatabaseHandler().findIDsByTag(search_parameters).length>0) {
+            populateSearchResults(search_parameters);
+        }
     }
 
-    private void populateSearchResults() {
+    private void populateSearchResults(String search_parameters) {
         int n = 0;
-        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
-        int[] recentIDs = guiFunctionHandler.findMostRecentNoteIDs();
 
-
+        DatabaseHandler databaseHandler = new DatabaseHandler();
+        int[] searchResultIds = databaseHandler.findIDsByTag(search_parameters);
 
         for (int i = 0; i <5; i++) {
             searchResults[i] = new JButton();

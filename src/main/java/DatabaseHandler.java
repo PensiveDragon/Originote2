@@ -115,7 +115,7 @@ public class DatabaseHandler {
         }
     }
 
-    public int[] findIDByTag(String tag) {
+    public int[] findIDsByTag(String tag) {
 
         List<TagContent> TagContents = jdbi.withHandle(handle -> {
             return handle.createQuery("SELECT * FROM tags_to_notes where tag='" + tag + "'")
