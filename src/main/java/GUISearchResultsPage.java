@@ -159,7 +159,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         DatabaseHandler databaseHandler = new DatabaseHandler();
         int[] searchResultIds = databaseHandler.findIDsByTag(search_parameters);
 
-        for (int i = 0; i <5; i++) {
+        for (int i = 0; i < searchResultIds.length; i++) {
             searchResults[i] = new JButton();
             searchResults[i].setText("" + (i+1));
             searchResultsListPanel.add(searchResults[i]);
