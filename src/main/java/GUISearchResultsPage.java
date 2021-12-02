@@ -171,6 +171,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
             searchResults[i].addActionListener(e -> {
                 System.out.println("Test Result Button Clicked!");
             });
+            searchResults[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, searchResultIds[n - 1]));
+
 
 /*
             if (recentIDs[n] > 0) {
