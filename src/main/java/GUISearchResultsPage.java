@@ -32,6 +32,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
+    String current_search_parameters = "";
+
     public GUISearchResultsPage(String search_parameters) {
         this.setTitle("Originote - Search Results for: " + search_parameters);
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -40,6 +42,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         this.setLayout(new BorderLayout(10, 10));
         this.setVisible(true);
         this.setIconImage(image.getImage());
+
+        current_search_parameters = search_parameters;
 
     //### MENU BAR PANEL SETUP
 
@@ -168,9 +172,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
             searchResults[i].setBorder(simpleBorder);
             searchResults[i].setHorizontalAlignment(SwingConstants.LEFT);
             searchResults[i].setFocusable(false);
-            searchResults[i].addActionListener(e -> {
-                System.out.println("Test Result Button Clicked!");
-            });
+            searchResults[i].addActionListener(this);
             searchResults[i].setText(new GUIFunctionHandler().createDisplayListLabelText(++n, searchResultIds[n - 1]));
 
 
@@ -213,7 +215,28 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 */
     @Override
     public void actionPerformed(ActionEvent e) {
+        GUIFunctionHandler guiFunctionHandler = new GUIFunctionHandler();
+        DatabaseHandler databaseHandler = new DatabaseHandler();
 
+        int[] searchResultIds = databaseHandler.findIDsByTag(current_search_parameters);
+        if (e.getSource()==searchResults[0]) {
+            System.out.println("First Entry. Note ID: " + searchResultIds[0]);
+            guiFunctionHandler.openNewViewNotePage(searchResultIds[0]);
+        } else if (e.getSource()==searchResults[1]) {
+            System.out.println("Second Entry. Note ID: " + searchResultIds[1]);
+            guiFunctionHandler.openNewViewNotePage(searchResultIds[1]);
+        } else if (e.getSource()==searchResults[2]) {
+            System.out.println("Third Entry. Note ID: " + searchResultIds[2]);
+            guiFunctionHandler.openNewViewNotePage(searchResultIds[2]);
+        } else if (e.getSource()==searchResults[3]) {
+            System.out.println("Forth Entry. Note ID: " + searchResultIds[3]);
+            guiFunctionHandler.openNewViewNotePage(searchResultIds[3]);
+        } else if (e.getSource()==searchResults[4]) {
+            System.out.println("Fifth Entry. Note ID: " + searchResultIds[4]);
+            guiFunctionHandler.openNewViewNotePage(searchResultIds[4]);
+        } else {
+            System.out.println("none");
+        };
     }
 }
 
