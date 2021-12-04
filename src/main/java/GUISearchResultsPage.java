@@ -81,7 +81,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
                 jSearchTextField.setForeground(Color.gray);
             } else {
                 if ((!new_search_parameters.isEmpty()) & (!new_search_parameters.equals("Search..."))) {
-                    guiFunctionHandler.openNewSearchResultsPage(new_search_parameters);
+                    //guiFunctionHandler.openNewSearchResultsPage(new_search_parameters);
+                    checkSearchResults(new_search_parameters);
                 }
             }
         });
@@ -152,6 +153,10 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
 
         //guiFunctionHandler.searchByTag(search_parameters);
 
+        checkSearchResults(search_parameters);
+    }
+
+    private void checkSearchResults(String search_parameters) {
         if (new DatabaseHandler().findIDsByTag(search_parameters).length>0) {
             populateSearchResults(search_parameters);
         }
