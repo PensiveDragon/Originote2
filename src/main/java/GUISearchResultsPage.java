@@ -33,6 +33,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
     ImageIcon originoteImage = new ImageIcon("SimpleOriginoteLogo.png");
 
     String current_search_parameters = "";
+    int[] searchResultIds;
 
     public GUISearchResultsPage(String search_parameters) {
         this.setTitle("Originote - Search Results for: " + search_parameters);
@@ -82,6 +83,8 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
             } else {
                 if ((!new_search_parameters.isEmpty()) & (!new_search_parameters.equals("Search..."))) {
                     //guiFunctionHandler.openNewSearchResultsPage(new_search_parameters);
+                    clearSearchResults();
+                    validate();
                     checkSearchResults(new_search_parameters);
                 }
             }
@@ -162,11 +165,17 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         }
     }
 
+    private void clearSearchResults() {
+        for (int i = 0; i < searchResultIds.length; i++) {
+            searchResultsListPanel.remove(searchResults[i]);
+        }
+    }
+
     private void populateSearchResults(String search_parameters) {
         int n = 0;
 
         DatabaseHandler databaseHandler = new DatabaseHandler();
-        int[] searchResultIds = databaseHandler.findIDsByTag(search_parameters);
+        searchResultIds = databaseHandler.findIDsByTag(search_parameters);
 
         for (int i = 0; i < searchResultIds.length; i++) {
             searchResults[i] = new JButton();
