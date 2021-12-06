@@ -69,7 +69,10 @@ public class GUIMainPage extends JFrame implements ActionListener {
         listNotesButton = new JButton();
         listNotesButton.setText("List Notes");
         listNotesButton.setBackground(Color.white);
-        listNotesButton.addActionListener(e -> System.out.println("List Notes Button Clicked!"));
+        listNotesButton.addActionListener(e -> {
+            System.out.println("List Notes Button Clicked!");
+            guiFunctionHandler.openNewSearchResultsPage("");
+        });
         listNotesButton.setFocusable(false);
 
         refreshButton.setText("Refresh");
