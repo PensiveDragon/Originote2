@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 
 public class GUISearchResultsPage extends JFrame implements ActionListener {
 
@@ -140,6 +141,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         headingLabel.setFont(testFont);
         headingLabel.setHorizontalAlignment(0);
 
+/*
         JButton test = new JButton();
         test.setText("Testing");
         test.setPreferredSize(new Dimension(500, 40));
@@ -150,7 +152,7 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
         test.addActionListener(e -> {
             System.out.println("Test Result Button Clicked!");
         });
-
+*/
         //searchResultsListPanel.add(test);
 
 
@@ -160,7 +162,12 @@ public class GUISearchResultsPage extends JFrame implements ActionListener {
     }
 
     private void checkSearchResults(String search_parameters) {
-        if (new DatabaseHandler().findIDsByTag(search_parameters).length>0) {
+        if (search_parameters.isEmpty()){
+            DatabaseHandler databaseHandler = new DatabaseHandler();
+            List<NoteContent> results = databaseHandler.findAllNoteData();
+            System.out.println("Found all note data: " + results.size() + " results total.");
+        }
+        else if (new DatabaseHandler().findIDsByTag(search_parameters).length>0) {
             populateSearchResults(search_parameters);
         }
     }
